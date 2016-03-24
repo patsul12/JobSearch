@@ -1,0 +1,5 @@
+<% @job_applications.each do |application| %>
+  <div class="job-application-tile">
+    <%= link_to application.created_at, job_application_path(application) %>
+  </div>
+<% end %>
