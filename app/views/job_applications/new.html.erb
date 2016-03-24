@@ -1,5 +1,19 @@
 <%= form_for @job_application do |f| %>
-  <%= f.label :status %>
-  <%= f.text_field :status %>
-  <%= f.submit "Create Application" %>
+  <%= f.hidden_field :status, value: "open" %>
+  <div class="form-group">
+    <%= f.label :date_submitted, "Date Submitted (defaults to the current date)" %>
+    <%= f.date_field :date_submitted, value: Date.today, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :company_id, "Select a Company" %>
+    <% if @companies %>
+      <%= f.select :company_id, @companies.map { |c| [c.name, c.id] }, class: "form-control", id: "company-select" %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Create Application", class: "btn btn-success form-control" %>
+  </div>
+<% end %>
+<% if !@companies %>
+  <%= render partial: 'application/new_company_form', locals: { company: @company } %>
 <% end %>

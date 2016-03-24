@@ -2,7 +2,7 @@ class JobApplicationsController < ApplicationController
   before_action :set_application, only: [:show]
 
   def index
-    @job_applications = JobApplication.all
+    @job_applications = JobApplication.order(date_submitted: "desc")
   end
 
   def show
@@ -10,6 +10,12 @@ class JobApplicationsController < ApplicationController
 
   def new
     @job_application = JobApplication.new
+    @companies = Company.all
+    if @companies.first == nil
+      flash[:alert] = "Looks like no companies are in the database yet. Create one to continue"
+      @companies = nil
+    end
+    @company = Company.new
   end
 
   def create
@@ -30,6 +36,6 @@ class JobApplicationsController < ApplicationController
   end
 
   def job_application_params
-    params.require(:job_application).permit(:user_id, :company_id, :status)
+    params.require(:job_application).permit(:user_id, :company_id, :status, :date_submitted)
   end
 end
