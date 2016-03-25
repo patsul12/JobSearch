@@ -7,10 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= alert %>
-<%= notice %>
-<div class="container">
-  <%= yield %>
-</div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-axpanded="false">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Home", root_path, class: "navbar-brand" %>
+      </div>
+      <div class="collapse navbar-collapse" id="#main-navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><!-- sign in and out buttons --></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <%= alert %>
+  <%= notice %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
