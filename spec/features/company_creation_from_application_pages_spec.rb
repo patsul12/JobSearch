@@ -7,7 +7,6 @@ describe 'the company creation path through the new application route' do
     fill_in :company_address, with: "Test Address"
     fill_in :company_website, with: "testwebsite.com"
     find("input.company-submit").click
-    save_and_open_page
     expect(page).to have_css("select#job_application_company_id")
   end
 end

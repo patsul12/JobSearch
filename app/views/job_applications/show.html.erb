@@ -1,1 +1,15 @@
-<%= @job_application.status %>
+<% if @job_application.company %>
+  <div class="application-company-info">
+    <%= @job_application.company.name %>
+    <%= @job_application.company.address %>
+    <%= @job_application.company.website %>
+  </div>
+<% else %>
+  <h3>No Company assigned to this application</h3>
+<% end %>
+<div class="application-info row">
+  <div class="application-status">
+    <%= @job_application.status %>
+  </div>
+  <%= @job_application.date_submitted %> 
+</div>

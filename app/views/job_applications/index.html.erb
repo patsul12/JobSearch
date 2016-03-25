@@ -1,5 +1,37 @@
-<% @job_applications.each do |application| %>
-  <div class="job-application-tile">
-    <%= link_to application.date_submitted, job_application_path(application) %>
-  </div>
-<% end %>
+<table class="table">
+  <th>
+    Date Submitted
+  </th>
+  <th>
+    Company
+  </th>
+  <th>
+    Status
+  </th>
+  <th>
+    Link
+  </th>
+  <% @job_applications.each do |application| %>
+    <% if application.status == "closed" %>
+      <% @status = "warning" %>
+    <% end %>
+    <tr class="job-application-tile <%= @status %>">
+      <td>
+        <%= application.date_submitted%>
+      </td>
+      <td>
+        <% if application.company %>
+          <%= application.company.name %>
+        <% else %>
+          n/a
+        <% end %>
+      </td>
+      <td>
+        <%= application.status %> 
+      </td>
+      <td>
+        <%= link_to "view application", job_application_path(application) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
