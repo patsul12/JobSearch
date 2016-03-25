@@ -13,9 +13,11 @@
   </th>
   <% @job_applications.each do |application| %>
     <% if application.status == "closed" %>
-      <% @status = "warning" %>
+      <% status = "danger" %>
+    <% elsif application.status == "open" %>
+      <% status = "success" %>
     <% end %>
-    <tr class="job-application-tile <%= @status %>">
+    <tr class="job-application-tile <%= status %>">
       <td>
         <%= application.date_submitted%>
       </td>
