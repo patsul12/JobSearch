@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324214908) do
+ActiveRecord::Schema.define(version: 20160326200303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,19 @@ ActiveRecord::Schema.define(version: 20160324214908) do
 
   create_table "job_applications", force: :cascade do |t|
     t.string   "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "user_id"
     t.integer  "company_id"
     t.string   "date_submitted"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
+    t.string   "cover_letter_file_name"
+    t.string   "cover_letter_content_type"
+    t.integer  "cover_letter_file_size"
+    t.datetime "cover_letter_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,8 +1,8 @@
 <% if @job_application.company %>
   <div class="application-company-info">
-    <%= @job_application.company.name %>
+    <h3><%= @job_application.company.name %></h3>
     <%= @job_application.company.address %>
-    <%= @job_application.company.website %>
+    <a href="<%= @job_application.company.website %>"><%= @job_application.company.website %></a>
   </div>
 <% else %>
   <h3>No Company assigned to this application</h3>
@@ -12,4 +12,5 @@
     <%= @job_application.status %>
   </div>
   <%= @job_application.date_submitted %> 
+  <iframe src="<%= @job_application.resume.url %>"></iframe>
 </div>
