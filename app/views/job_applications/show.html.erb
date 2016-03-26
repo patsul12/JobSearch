@@ -12,5 +12,16 @@
     <%= @job_application.status %>
   </div>
   <%= @job_application.date_submitted %> 
-  <iframe src="<%= @job_application.resume.url %>"></iframe>
+  <% if @job_application.resume.file? %>
+    <h3>Resume:</h3>
+    <iframe class="col-md-12 file-attachment" src="<%= @job_application.resume.url %>"></iframe>
+  <% else %>
+    <h4>No Resume Assigned</h4>
+  <% end %>
+  <% if @job_application.cover_letter.file? %>
+    <h3>Cover Letter:</h3>
+    <iframe class="col-md-12 file-attachment" src="<%= @job_application.cover_letter.url %>"></iframe>
+  <% else %>
+    <h4>No Cover Letter Assigned</h4>
+  <% end %>
 </div>
