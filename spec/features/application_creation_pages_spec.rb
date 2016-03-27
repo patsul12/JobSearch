@@ -6,6 +6,7 @@ describe 'the application creation process' do
       create(:company)
     end
     visit new_job_application_path
+    save_and_open_page
     click_button 'Create Application'
     expect(page).to have_content('open')
   end
