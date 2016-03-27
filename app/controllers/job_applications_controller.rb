@@ -1,5 +1,6 @@
 class JobApplicationsController < ApplicationController
   before_action :set_application, only: [:show]
+  autocomplete :company, :name
 
   def index
     @job_applications = JobApplication.order(date_submitted: "desc")

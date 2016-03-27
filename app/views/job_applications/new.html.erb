@@ -5,6 +5,7 @@
     <%= f.date_field :date_submitted, value: Date.today, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.autocomplete_field :company_id, autocomplete_company_name_job_applications_path %>
     <%= f.label :company_id, "Select a Company" %>
     <% if @companies %>
       <%= f.select :company_id, @companies.map { |c| [c.name, c.id] }, class: "form-control", id: "company-select" %>
