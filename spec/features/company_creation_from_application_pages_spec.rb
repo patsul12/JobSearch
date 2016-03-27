@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 describe 'the company creation path through the new application route' do
-  it 'allows a user to create a company if it does not exist in the database' do
+  it 'allows a user to create a company if it does not exist in the database', js: true do
+    user = create(:user)
+    login_as(user, scope: :user)
     visit new_job_application_path
+    page.find("#new-company-toggle").click
     fill_in :company_name, with: "Test Company"
     fill_in :company_address, with: "Test Address"
     fill_in :company_website, with: "testwebsite.com"
