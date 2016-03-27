@@ -1,9 +1,10 @@
 class JobApplicationsController < ApplicationController
   before_action :set_application, only: [:show]
+  before_action :authenticate_user!
   autocomplete :company, :name
 
   def index
-    @job_applications = JobApplication.order(date_submitted: "desc")
+    @job_applications = JobApplication.where(user_id: current_user.id)
   end
 
   def show

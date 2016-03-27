@@ -1,5 +1,6 @@
 <%= form_for @job_application, html: {multipart: true} do |f| %>
   <%= f.hidden_field :status, value: "open" %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="form-group">
     <%= f.label :date_submitted, "Date Submitted (defaults to the current date)" %>
     <%= f.date_field :date_submitted, value: Date.today, class: "form-control" %>
@@ -21,4 +22,7 @@
     <%= f.submit "Create Application", class: "btn btn-success form-control" %>
   </div>
 <% end %>
-<%= render partial: 'application/new_company_form', locals: { company: @company } %>
+<button type="button" id="new-company-toggle" class="btn btn-block btn-primary">Don't see the company you applied to? Click here to create it.</button>
+<div id="new-company-form" hidden>
+  <%= render partial: 'application/new_company_form', locals: { company: @company } %>
+</div>
