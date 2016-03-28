@@ -22,7 +22,9 @@
     <%= f.submit "Create Application", class: "btn btn-success form-control" %>
   </div>
 <% end %>
-<button type="button" id="new-company-toggle" class="btn btn-block btn-primary">Don't see the company you applied to? Click here to create it.</button>
-<div id="new-company-form" hidden>
-  <%= render partial: 'application/new_company_form', locals: { company: @company } %>
-</div>
+<% if @company %>
+  <button type="button" id="new-company-toggle" class="btn btn-block btn-primary">Don't see the company you applied to? Click here to create it.</button>
+  <div id="new-company-form" hidden>
+    <%= render partial: 'application/new_company_form', locals: { company: @company } %>
+  </div>
+<% end %> 
