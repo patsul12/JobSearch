@@ -1,22 +1,58 @@
-[![Build Status](https://travis-ci.org/patsul12/JobSearch.svg?branch=master)](https://travis-ci.org/patsul12/JobSearch)
-
-[![Code Climate](https://codeclimate.com/github/patsul12/JobSearch/badges/gpa.svg)](https://codeclimate.com/github/patsul12/JobSearch)
+[![Build Status](https://travis-ci.org/patsul12/JobSearch.svg?branch=master)](https://travis-ci.org/patsul12/JobSearch)[![Code Climate](https://codeclimate.com/github/patsul12/JobSearch/badges/gpa.svg)](https://codeclimate.com/github/patsul12/JobSearch)
 # Job Search
 
-An appdesigned to make it easier to keep your job search organized. Track applications, resumes, and cover letters easily.
+An app designed to make it easier to keep your job search organized. Track applications, resumes, and cover letters easily.
 Add interview post-mortems and generate reposts relevant to improving your job search
 
-## Installation
+## Basic Installation
 
-clone this repository 
+for a basic installation of the app follow these steps
 
-make sure you have a postgres instance up and running
+1. clone this repo `git clone http://github.com/patsul12/JobSearch`
+2. change directory into the project
+3. run `bundle install --without development test`
+4. run `rake`
+5. to start up the local server run `rails s`
+6. navigate to [localhost:3000](http://localhost:3000 "link to localhost") to access the application
 
-run `bundle install`
-run `rake`
+## Development
 
-to start up the development server run `rails s`  
-navigate to [localhost:3000](localhost:3000) to access the app
+A few extra steps are needed to setup the development environment for this application
+
+clone this repo `git clone http://github.com/patsul12/JobSearch`
+
+For testing the capybara-webkit gem is being used, 
+
+In order to set this up you need Qt, a cross platform development toolkit.
+
+Thoughtbot has provided great documentation on how to get it set up on your local machine [HERE](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+
+You will also need a working implementation of an xvfb-server
+
+####on linux:
+install with yaourt
+`yaourt xorg-server-xvfb`
+
+####on OSX:
+to be updated.
+
+with those dependencies installed, then run
+`bundle install`
+`rake`
+`rails s`
+to get the development server up and running
+
+###Testing:
+to run the entire test suite simply run `rspec`
+
+in order to make testing faster this project is set up to run tests from zeus
+
+to start the zeus server run `zeus start`
+leave it running and it should keep the application running so it doesn't need to restart every time you run a test
+
+####developers notes:
+If you are a vim user i recommend following along with this post: [using-vim-to-drive-tdd](http://tmr08c.github.io/vim/2015/11/08/using-vim-to-drive-tdd.html)
+in order to setup your environment for fast testing with zeus
 
 #### Author: Patrick Sullivan
 
