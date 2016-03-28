@@ -10,6 +10,7 @@ require 'database_cleaner'
 ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.javascript_driver = :webkit
+Capybara.default_wait_time = 15
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

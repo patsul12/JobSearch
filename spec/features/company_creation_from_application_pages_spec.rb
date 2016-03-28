@@ -12,4 +12,13 @@ describe 'the company creation path through the new application route' do
     find("input.company-submit").click
     expect(page).to have_css("select#job_application_company_id")
   end
+
+  it 'doesnt allow a company to be created with invalid parameters', js: true do
+    user = create(:user)
+    login_as(user, scope: :user)
+    visit new_job_application_path
+    page.find("#new-company-toggle").click
+    find("input.company-submit").click
+    expect(page).to have_content("Error")
+  end
 end
