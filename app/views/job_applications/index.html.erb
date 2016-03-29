@@ -34,6 +34,9 @@
       <td>
         <%= link_to "view application", job_application_path(application) %>
       </td>
+      <td>
+        <%= link_to "delete", job_application_path(application), method: 'delete', remote: true %>
+      </td>
     </tr>
   <% end %>
 </table>

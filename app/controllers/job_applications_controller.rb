@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_application, only: [:show]
+  before_action :set_application, only: [:show, :destroy]
   before_action :authenticate_user!
   autocomplete :company, :name
 
@@ -28,6 +28,17 @@ class JobApplicationsController < ApplicationController
     else
       flash[:alert] = "Something went wrong"
       render "new"
+    end
+  end
+
+  def destroy
+    if @job_application.destroy
+      respond_to do |format|
+        format.js
+      end
+    else
+      flash[:alert] = "Something went wrong deleting the application"
+      redirect_to job_applications_path
     end
   end
 

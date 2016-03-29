@@ -1,0 +1,3 @@
+$(document).on("ajax:success", function(e, data, status, xhr) {
+  $(e.target).closest("tr").remove();
+});
