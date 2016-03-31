@@ -1,0 +1,16 @@
+<%= link_to job_application_path(job_application), class: "row list-group-item job-application-tile" do %>
+  <div class="col-md-3">
+    <%= job_application.date_submitted %>
+  </div>
+  <% if job_application.company %>
+    <div class="col-md-3">
+      <%= job_application.company.name %>
+    </div>
+  <% end %>
+  <div class="col-md-3">
+    <%= job_application.status  %>
+  </div>
+  <div class="col-md-3">
+    <%= link_to "delete", job_application_path(job_application), method: "delete", remote: true %>
+  </div>
+<% end %>

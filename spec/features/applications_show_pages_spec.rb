@@ -8,6 +8,6 @@ describe 'the job applications show path' do
       create(:job_application, user_id: user.id)
     end
     visit job_applications_path
-    expect(page).to have_css("tr.job-application-tile", count: 100)
+    expect(page).to have_css("a.job-application-tile", count: 100)
   end
 end
