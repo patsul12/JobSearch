@@ -6,11 +6,12 @@ describe 'the application creation process' do
     login_as(user, scope: :user)
   end
 
-  it 'allows the user to create a new application' do
+  it 'allows the user to create a new application', js: true do
     10.times do
       create(:company)
     end
-    visit new_job_application_path
+    visit root_path
+    click_link "New Application"
     click_button 'Create Application'
     expect(page).to have_content('open')
   end

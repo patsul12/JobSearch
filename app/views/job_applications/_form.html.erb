@@ -22,8 +22,7 @@
   </div>
 <% end %>
 <% if @company %>
-  <button type="button" id="new-company-toggle" class="btn btn-block btn-primary">Don't see the company you applied to? Click here to create it.</button>
-  <div id="new-company-form" hidden>
-    <%= render partial: 'application/new_company_form', locals: { company: @company } %>
+  <%= link_to "Don't see the company you applied to? Click here to create it.", new_company_path, remote: true, id: "new-company-toggle" %>
+  <div id="new-company-form">
   </div>
 <% end %> 

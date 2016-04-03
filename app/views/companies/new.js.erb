@@ -1,0 +1,3 @@
+$(document).on("ajax:success", function(e, data, status, xhr) {
+  $("#new-company-form").html("<%= j render "application/new_company_form" %>")
+});
