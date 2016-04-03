@@ -9,6 +9,10 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { render '_show' }
+      format.js
+    end
   end
 
   def new

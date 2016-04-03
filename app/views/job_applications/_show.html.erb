@@ -1,8 +1,18 @@
+<% javascript_include_tag 'job_application' %>
 <% if @job_application.company %>
-  <div class="application-company-info">
-    <h3><%= @job_application.company.name %></h3>
-    <%= @job_application.company.address %>
-    <a href="<%= @job_application.company.website %>"><%= @job_application.company.website %></a>
+  <div class="row application-company-info">
+    <h2 class="job-application-company-title"><%= @job_application.company.name %></h2>
+    <div class="col-md-3 col-center">
+      <h4>
+        <%= @job_application.company.address %>
+      </h4>
+    </div>
+    <div class="col-md-3 col-center">
+      <h4>
+        <a href="<%= @job_application.company.website %>"><%= @job_application.company.website %>
+        </a>
+      <h4>
+    </div>
   </div>
 <% else %>
   <h3>No Company assigned to this application</h3>
@@ -11,7 +21,7 @@
   <div class="application-status">
     <%= @job_application.status %>
   </div>
-  <%= @job_application.date_submitted %> 
+  <%= @job_application.date_submitted %>
   <% if @job_application.resume.file? %>
     <h3>Resume:</h3>
     <iframe class="col-md-12 file-attachment" src="<%= @job_application.resume.url %>"></iframe>

@@ -15,6 +15,11 @@
 @import "bootstrap";
 @import "bootswatch";
 
+.col-center {
+  margin: auto;
+  float: none;
+}
+
 .file-attachment {
   height: 50vh;
   padding: none;
@@ -24,4 +29,8 @@
 
 .job-application-tile {
   padding: 10px;
+}
+
+.application-company-info {
+  text-align: center;
 }
