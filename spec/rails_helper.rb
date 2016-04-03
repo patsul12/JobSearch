@@ -7,6 +7,7 @@ require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'factory_girl_rails'
 require 'database_cleaner'
+require 'capybara-screenshot/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!
 

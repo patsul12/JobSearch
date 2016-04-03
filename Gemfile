@@ -34,6 +34,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
