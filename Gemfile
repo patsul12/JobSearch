@@ -34,8 +34,6 @@ group :test, :development do
 end
 
 group :test do
-  gem 'vcr'
-  gem 'webmock'
   gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'shoulda-matchers'

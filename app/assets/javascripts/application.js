@@ -14,7 +14,6 @@
 //= require bootstrap
 //= require jquery_ujs
 //= require jquery-ui/autocomplete
-//= require jquery.colorbox
 //= require turbolinks
 //= require components
 //= require_tree .
