@@ -15,7 +15,8 @@
 //= require jquery_ujs
 //= require jquery-ui/autocomplete
 //= require turbolinks
-//= require react
-//= require react_ujs
 //= require components
 //= require_tree .
+submitForm = function(e) {
+  $(e).closest('form').submit();
+}

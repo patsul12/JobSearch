@@ -1,6 +1,7 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_application, only: [:show, :destroy]
+  before_action :set_application, only: [:show, :destroy, :update]
   before_action :authenticate_user!
+  skip_before_filter :verify_authenticity_token, only: :update
   autocomplete :company, :name
 
   def index
@@ -30,6 +31,16 @@ class JobApplicationsController < ApplicationController
     else
       flash[:alert] = "Something went wrong"
       render "new"
+    end
+  end
+
+  def update
+    if @job_application.update(job_application_params)
+      respond_to do |format|
+        format.js
+      end
+    else
+      render 'index'
     end
   end
 

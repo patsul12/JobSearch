@@ -1,0 +1,7 @@
+$(document).on('ajax:success', function(e, data, status, xhr) {
+  var colors = {
+    "open": "green",
+    "closed": "red"
+  }
+  $(e.target).closest('.row').css('background-color', colors["<%= @job_application.status %>"]);
+});
