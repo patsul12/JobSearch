@@ -1,21 +1,21 @@
-<div class="row list-group-item">
-  <div class="col-md-2">
+<div class="row list-group-item job-application-tile">
+  <div class="col-xs-12 col-md-2">
     <%= job_application.date_submitted %>
   </div>
   <% if job_application.company %>
-    <div class="col-md-2">
+    <div class="col-xs-12 col-md-2">
       <%= job_application.company.name %>
     </div>
   <% end %>
-  <div class="col-md-2">
+  <div class="col-xs-12 col-md-2">
     <%= form_for job_application, remote: true, class: "form-inline" do |f| %>
       <%= f.select :status, options_for_select(["open", "closed"], job_application.status), {}, onchange: "submitForm(this)", class: "form-control" %>
     <% end %>
   </div>
-  <div class="col-md-2">
-    <%= link_to "View Application", job_application_path(job_application), method: "get", remote: "true", class: "btn btn-primary" %>
+  <div class="col-xs-12 col-md-2">
+    <%= link_to "View Application", job_application_path(job_application), method: "get", remote: "true", class: "btn btn-primary btn-block" %>
   </div>
-  <div class="col-md-2">
-    <%= link_to "delete", job_application_path(job_application), method: "delete", remote: true, class: "btn btn-danger" %>
+  <div class="col-xs-12 col-md-2">
+    <%= link_to "delete", job_application_path(job_application), method: "delete", remote: true, class: "btn btn-danger btn-block" %>
   </div>
 </div>
