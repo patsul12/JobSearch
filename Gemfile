@@ -28,13 +28,13 @@ group :test, :development do
   gem 'launchy'
   gem 'pry'
   gem 'capybara'
-  gem 'capybara-webkit'
   gem 'warden'
   gem "factory_girl_rails", "~> 4.0"
   gem 'database_cleaner'
 end
 
 group :test do
+  gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

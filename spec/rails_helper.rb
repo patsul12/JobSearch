@@ -4,16 +4,13 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+require 'capybara/poltergeist'
 require 'factory_girl_rails'
 require 'database_cleaner'
 
 ActiveRecord::Migration.maintain_test_schema!
 
-Capybara.javascript_driver = :webkit
-Capybara.default_wait_time = 15
-Capybara::Webkit.configure do |config|
-  config.allow_url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic")
-end
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
