@@ -10,3 +10,6 @@ script:
   - bundle exec rspec spec/
 before_script:
   - psql -c 'create database my_app_test' -U postgres
+addons:
+  artifacts: true
+    s3_region: "us-west-2"
