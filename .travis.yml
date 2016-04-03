@@ -3,12 +3,10 @@ rvm:
   - 2.3.0
 env:
   - DB=postgresql
-script: 
+script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
-  - xvfb-run bundle exec rspec spec/
+  - bundle exec rspec spec/
 before_script:
   - psql -c 'create database my_app_test' -U postgres
-before_install:
-    - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
