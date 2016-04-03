@@ -12,6 +12,6 @@
 !/log/.keep
 /tmp
 *.swp
+*.swo
 /coverage/*
 /coverage/**/*
-

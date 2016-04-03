@@ -18,7 +18,7 @@
         </button>
         <%= link_to "Home", root_path, class: "navbar-brand" %>
       </div>
-      <div class="collapse navbar-collapse" id="#main-navbar">
+      <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li><%= link_to "New Application", new_job_application_path, remote: true %></li>

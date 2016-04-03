@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+
   def new
     @company = Company.new
     respond_to do |format|
@@ -9,11 +10,16 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.create(company_params)
     if @company.save
-      flash[:notice] = "Company added successfuly"
-      redirect_to new_job_application_path
+      flash.now[:notice] = "Company added successfully"
+      @companies = Company.all
+      respond_to do |format|
+        format.js
+      end
     else
-      flash[:alert] = "Errors occured while saving the company."
-      redirect_to new_job_application_path
+      flash.now[:alert] = "Errors occured while saving the company."
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

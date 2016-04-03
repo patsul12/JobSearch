@@ -1,0 +1,9 @@
+<% if notice %>
+  $(".container").prepend("<div class='alert alert-success'>\
+                             <%= flash[:notice] %>\
+                           </div>");
+<% elsif alert %>
+  $(".container").prepend("<div class='alert alert-danger'>\
+                             <%= flash[:alert] %>\
+                           </div>");
+<% end %>

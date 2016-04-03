@@ -4,8 +4,7 @@
     <%= f.label :date_submitted, "Date Submitted (defaults to the current date)" %>
     <%= f.date_field :date_submitted, value: Date.today, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.autocomplete_field :company_id, autocomplete_company_name_job_applications_path %>
+  <div class="form-group" id="company-select-form">
     <%= f.label :company_id, "Select a Company" %>
     <% if @companies %>
       <%= f.select :company_id, @companies.map { |c| [c.name, c.id] }, class: "form-control", id: "company-select" %>
@@ -25,4 +24,4 @@
   <%= link_to "Don't see the company you applied to? Click here to create it.", new_company_path, remote: true, id: "new-company-toggle" %>
   <div id="new-company-form">
   </div>
-<% end %> 
+<% end %>
