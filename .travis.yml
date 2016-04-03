@@ -6,6 +6,7 @@ env:
 script:
   - bundle exec rake db:create
   - bundle exec rake db:migrate --trace
+  - bundle exec rake db:seed
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/
 before_script:
@@ -13,3 +14,5 @@ before_script:
 addons:
   artifacts:
     s3_region: "us-west-2"
+    paths:
+      - $(git ls-files -o | grep capybara/screenshot_* | tr "\n" ":")
