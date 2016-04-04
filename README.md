@@ -17,16 +17,18 @@ for a basic installation of the app follow these steps
 
 ## Development
 
-PhantomJS is required to run the tests for this application.
-[Installing Phantom](http://phantomjs.org/download.html)
+#### Requirements:
+  Ruby/Rails
+  Postgres
+  PhantomJS is required to run the tests for this application.
+  [Installing Phantom](http://phantomjs.org/download.html)
 
-with those dependencies installed, run
-`bundle install`
-
-`rake`
-
-`rails s`
-
+1. Clone this repo
+2. `cd` into the project directory
+3. `bundle install`
+4. Make sure you have a running instance of Postgres
+4. `rake db:setup`
+5. `rails s`
 to get the development server running
 
 ###Testing:
