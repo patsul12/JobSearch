@@ -17,24 +17,8 @@ for a basic installation of the app follow these steps
 
 ## Development
 
-A few extra steps are needed to setup the development environment for this application
-
-clone this repo `git clone http://github.com/patsul12/JobSearch`
-
-For testing the capybara-webkit gem is being used, 
-
-In order to set this up you need Qt, a cross platform development toolkit.
-
-Thoughtbot has provided great documentation on how to get it set up on your local machine [HERE](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
-
-You will also need a working implementation of an xvfb-server
-
-####on linux:
-install with yaourt
-`yaourt xorg-server-xvfb`
-
-####on OSX:
-to be updated.
+PhantomJS is required to run the tests for this application.
+[Installing Phantom](http://phantomjs.org/download.html)
 
 with those dependencies installed, then run
 `bundle install`
