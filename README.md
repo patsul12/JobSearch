@@ -2,7 +2,7 @@
 # Job Search
 
 An app designed to make it easier to keep your job search organized. Track applications, resumes, and cover letters easily.
-Add interview post-mortems and generate reposts relevant to improving your job search
+Add interview post-mortems and generate reports relevant to improving your job search
 
 ## Basic Installation
 
@@ -20,11 +20,14 @@ for a basic installation of the app follow these steps
 PhantomJS is required to run the tests for this application.
 [Installing Phantom](http://phantomjs.org/download.html)
 
-with those dependencies installed, then run
+with those dependencies installed, run
 `bundle install`
+
 `rake`
+
 `rails s`
-to get the development server up and running
+
+to get the development server running
 
 ###Testing:
 to run the entire test suite simply run `rspec`
