@@ -19,3 +19,7 @@
     <%= link_to "delete", job_application_path(job_application), method: "delete", remote: true, class: "btn btn-danger btn-block" %>
   </div>
 </div>
+<div id=<%= "job-application-show-" + job_application.id.to_s %> hidden>
+  <%= render 'show' %>
+</div>
+
