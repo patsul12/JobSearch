@@ -6,6 +6,7 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = JobApplication.where(user_id: current_user.id)
+    @job_application = JobApplication.new
   end
 
   def show
@@ -30,8 +31,11 @@ class JobApplicationsController < ApplicationController
 
   def create
     @job_application = JobApplication.create(job_application_params)
+    @job_applications = JobApplication.where(user_id: current_user.id)
     if @job_application.save
-      redirect_to job_application_path(@job_application)
+      respond_to do |format|
+        format.js
+      end
     else
       flash[:alert] = "Something went wrong"
       render "new"

@@ -1,1 +1,10 @@
+var btnText = $("#job-application-show-toggle-<%= @job_application.id %>").text();
+console.log(btnText);
+var newBtnText = "";
+if (btnText == "View Application") {
+  newBtnText = "Hide Application";
+} else {
+  newBtnText = "View Application";
+} 
+$("#job-application-show-toggle-<%= @job_application.id %>").text(newBtnText);
 $("#job-application-show-<%= @job_application.id %>").toggle()

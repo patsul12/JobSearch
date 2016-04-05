@@ -13,7 +13,7 @@ describe 'the application creation process' do
     visit root_path
     click_link "New Application"
     click_button 'Create Application'
-    expect(page).to have_content('open')
+    expect(page).to have_content(Date.today);
   end
 
   it 'does not allow an application to be created with invalid parameters' do
