@@ -2,7 +2,7 @@
 # Job Search
 
 An app designed to make it easier to keep your job search organized. Track applications, resumes, and cover letters easily.
-Add interview post-mortems and generate reposts relevant to improving your job search
+Add interview post-mortems and generate reports relevant to improving your job search
 
 ## Basic Installation
 
@@ -17,30 +17,19 @@ for a basic installation of the app follow these steps
 
 ## Development
 
-A few extra steps are needed to setup the development environment for this application
+#### Requirements:
+  Ruby/Rails
+  Postgres
+  PhantomJS is required to run the tests for this application.
+  [Installing Phantom](http://phantomjs.org/download.html)
 
-clone this repo `git clone http://github.com/patsul12/JobSearch`
-
-For testing the capybara-webkit gem is being used, 
-
-In order to set this up you need Qt, a cross platform development toolkit.
-
-Thoughtbot has provided great documentation on how to get it set up on your local machine [HERE](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
-
-You will also need a working implementation of an xvfb-server
-
-####on linux:
-install with yaourt
-`yaourt xorg-server-xvfb`
-
-####on OSX:
-to be updated.
-
-with those dependencies installed, then run
-`bundle install`
-`rake`
-`rails s`
-to get the development server up and running
+1. Clone this repo
+2. `cd` into the project directory
+3. `bundle install`
+4. Make sure you have a running instance of Postgres
+4. `rake db:setup`
+5. `rails s`
+to get the development server running
 
 ###Testing:
 to run the entire test suite simply run `rspec`
