@@ -1,15 +1,15 @@
 <% javascript_include_tag 'job_application' %>
-<% if @job_application.company %>
+<% if job_application.company %>
   <div class="row application-company-info">
-    <h2 class="job-application-company-title"><%= @job_application.company.name %></h2>
+    <h2 class="job-application-company-title"><%= job_application.company.name %></h2>
     <div class="col-md-3 col-center">
       <h4>
-        <%= @job_application.company.address %>
+        <%= job_application.company.address %>
       </h4>
     </div>
     <div class="col-md-3 col-center">
       <h4>
-        <a href="<%= @job_application.company.website %>"><%= @job_application.company.website %>
+        <a href="<%= job_application.company.website %>"><%= job_application.company.website %>
         </a>
       <h4>
     </div>
@@ -19,18 +19,18 @@
 <% end %>
 <div class="application-info row">
   <div class="application-status">
-    <%= @job_application.status %>
+    <%= job_application.status %>
   </div>
-  <%= @job_application.date_submitted %>
-  <% if @job_application.resume.file? %>
+  <%= job_application.date_submitted %>
+  <% if job_application.resume.file? %>
     <h3>Resume:</h3>
-    <iframe class="col-md-12 file-attachment" src="<%= @job_application.resume.url %>"></iframe>
+    <iframe class="col-md-12 file-attachment" src="<%= job_application.resume.url %>"></iframe>
   <% else %>
     <h4>No Resume Assigned</h4>
   <% end %>
-  <% if @job_application.cover_letter.file? %>
+  <% if job_application.cover_letter.file? %>
     <h3>Cover Letter:</h3>
-    <iframe class="col-md-12 file-attachment" src="<%= @job_application.cover_letter.url %>"></iframe>
+    <iframe class="col-md-12 file-attachment" src="<%= job_application.cover_letter.url %>"></iframe>
   <% else %>
     <h4>No Cover Letter Assigned</h4>
   <% end %>

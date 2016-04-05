@@ -20,6 +20,6 @@
   </div>
 </div>
 <div id=<%= "job-application-show-" + job_application.id.to_s %> hidden>
-  <%= render 'show' %>
+  <%= render partial: 'show', locals: { job_application: job_application } %>
 </div>
 
