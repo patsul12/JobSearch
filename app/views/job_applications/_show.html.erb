@@ -1,4 +1,7 @@
 <% javascript_include_tag 'job_application' %>
+<div class="job-application-edit-button">
+  <button type="button" class="btn btn-alert">Edit</button>
+</div>
 <% if job_application.company %>
   <div class="row application-company-info">
     <h2 class="job-application-company-title"><%= job_application.company.name %></h2>
@@ -18,10 +21,12 @@
   <h3>No Company assigned to this application</h3>
 <% end %>
 <div class="application-info row">
-  <div class="application-status">
-    <%= job_application.status %>
+  <div class="col-md-12 col-center">
+    <%= job_application.date_submitted %>
   </div>
-  <%= job_application.date_submitted %>
+  <div class="col-md-12 col-center application-status">
+    <h3>Status: <%= job_application.status %></h3>
+  </div>
   <% if job_application.resume.file? %>
     <h3>Resume:</h3>
     <iframe class="col-md-12 file-attachment" src="<%= job_application.resume.url %>"></iframe>

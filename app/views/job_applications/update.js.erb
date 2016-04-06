@@ -1,7 +1,5 @@
-$(document).on('ajax:success', function(e, data, status, xhr) {
   var colors = {
     "open": "list-group-item-success",
     "closed": "list-group-item-danger"
   }
-  $(e.target).closest('.row').removeClass("list-group-item-danger list-group-item-success").addClass(colors["<%= @job_application.status %>"]);
-});
+  $("#job-application-tile-<%= @job_application.id.to_s %>").removeClass("list-group-item-danger list-group-item-success").addClass(colors["<%= @job_application.status %>"]);
