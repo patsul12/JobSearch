@@ -1,12 +1,23 @@
-<div class="row user-avatar">
-  <%= @user.image %>
-</div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <%= @user.username %>
-    <%= @user.first_name %>
-    <%= @user.last_name %>
+<div class="row user">
+  <img class="col-md-4 user-avatar-image" src="https://placehold.it/300x300">
+  <div class="col-md-8">
+    <div class="col-md-8">
+      <h2><%= @user.username %></h2>
+      <%= @user.first_name %>
+      <%= @user.last_name %>
+    </div>
+    <div class="col-md-8">
+      <h4>Job Search Began: <%= @user.created_at %></h4>
+    </div>
+    <div class="col-md-8">
+      <h4>Application made: <%= @user.job_applications.count %></h4>
+    </div>
   </div>
 </div>
+<div class="row user-graphs">
+  <div class="col-md-12">
+    Graph that shows users job application history
+  </div>
+</div>
+
 

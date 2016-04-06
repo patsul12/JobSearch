@@ -15,6 +15,7 @@ gem 'paperclip', '~> 4.3'
 gem 'rails-jquery-autocomplete'
 gem 'devise'
 gem 'react-rails', '~> 1.6.0'
+gem 'd3-rails'
 
 group :development do
   gem 'byebug'
