@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'the application creation process' do
-  before :each do 
+  before :each do
     user = create(:user)
     login_as(user, scope: :user)
   end
@@ -16,8 +16,8 @@ describe 'the application creation process' do
     expect(page).to have_content(Date.today);
   end
 
-  it 'does not allow an application to be created with invalid parameters' do
-    10.times do 
+  it 'does not allow an application to be created with invalid parameters', js: true do
+    10.times do
       create(:company)
     end
     rack_test_session_wrapper = Capybara.current_session.driver

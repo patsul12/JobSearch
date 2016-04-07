@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'the user profile show path' do
-  it 'allows the user to vies information regarding their account on a profile page' do
+  it 'allows the user to vies information regarding their account on a profile page', js: true do
     user = create(:user_with_job_applications)
     login_as(user, scope: :user)
     visit user_path(user)

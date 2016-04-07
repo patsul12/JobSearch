@@ -24,9 +24,9 @@ function drawUserApplicationsGraph(data) {
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
         .attr("transform",
-              "translate(" + margin.left + "," + margin.top ")");
+              "translate(" + margin.left + "," + margin.top + ")");
 
   data.forEach(function(d) {
     return;
-  })
+  });
 };
