@@ -2,7 +2,6 @@ class JobApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :destroy, :update]
   before_action :authenticate_user!
   skip_before_filter :verify_authenticity_token, only: :update
-  autocomplete :company, :name
 
   def index
     @job_applications = JobApplication.where(user_id: current_user.id)
@@ -43,7 +42,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def update
-    if @job_application.update(job_application_params)
+    if @job_application.update_attributes(job_application_params)
       respond_to do |format|
         format.js
       end

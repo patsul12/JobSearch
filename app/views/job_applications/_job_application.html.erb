@@ -1,9 +1,8 @@
-<% if job_application.status = "open" %>
+<% if job_application.status == "open" %>
   <% @color = "list-group-item-success" %>
 <% else %>
   <% @color = "list-group-item-danger" %>
 <% end %>
-
 <div class="row list-group-item <%= @color %> job-application-tile" id="job-application-tile-<%= job_application.id.to_s %>">
   <div class="col-xs-12 col-md-2">
     <%= job_application.date_submitted %>
