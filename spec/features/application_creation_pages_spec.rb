@@ -12,6 +12,7 @@ describe 'the application creation process' do
     end
     visit root_path
     click_link "New Application"
+    fill_in 'job_application[job_applied_for]', with: 'Junior Developer'
     click_button 'Create Application'
     expect(page).to have_content(Date.today);
   end

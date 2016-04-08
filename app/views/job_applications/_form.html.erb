@@ -2,6 +2,10 @@
 <%= form_for @job_application, html: {multipart: true}, remote: true do |f| %> <%= f.hidden_field :status, value: "open" %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="form-group">
+    <%= f.label :job_applied_for %>
+    <%= f.text_field :job_applied_for %>
+  </div>
+  <div class="form-group">
     <%= f.label :date_submitted, "Date Submitted (defaults to the current date)" %>
     <%= f.date_field :date_submitted, value: Date.today, class: "form-control" %>
   </div>
