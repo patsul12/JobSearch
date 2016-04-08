@@ -6,4 +6,5 @@ class JobApplication < ActiveRecord::Base
   has_attached_file :cover_letter
   do_not_validate_attachment_file_type :resume
   do_not_validate_attachment_file_type :cover_letter
+  has_and_belongs_to_many :contacts
 end
