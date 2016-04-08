@@ -1,4 +1,4 @@
-<% if job_application.status == "open" %>
+<% if job_application.status == "applied" %>
   <% @color = "list-group-item-success" %>
 <% else %>
   <% @color = "list-group-item-danger" %>
@@ -14,7 +14,7 @@
   <% end %>
   <div class="col-xs-12 col-md-2">
     <%= form_for job_application, remote: true, class: "form-inline" do |f| %>
-      <%= f.select :status, options_for_select(["open", "closed"], job_application.status), {}, onchange: "submitForm(this)", class: "form-control" %>
+      <%= f.select :status, options_for_select(["applied", "phone screen", "phone interview", "on site interview", "recieved offer", "Got the job!", "closed"], job_application.status), {}, onchange: "submitForm(this)", class: "form-control" %>
     <% end %>
   </div>
   <div class="col-xs-12 col-md-2">

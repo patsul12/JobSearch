@@ -1,5 +1,11 @@
   var colors = {
-    "open": "list-group-item-success",
+    "applied": "applied",
+    "phone screen": "phone-screen",
+    "phone interview": "phone-interview",
+    "on site interview": "on-site-interview",
+    "recieved offer": "recieved-offer",
+    "Got the job!": "list-group-item-success",
     "closed": "list-group-item-danger"
+
   }
-  $("#job-application-tile-<%= @job_application.id.to_s %>").removeClass("list-group-item-danger list-group-item-success").addClass(colors["<%= @job_application.status %>"]);
+  $("#job-application-tile-<%= @job_application.id.to_s %>").removeClass("list-group-item-danger list-group-item-success applied phone-screen phone-interview on-site-interview recieved-offer").addClass(colors["<%= @job_application.status %>"]);
