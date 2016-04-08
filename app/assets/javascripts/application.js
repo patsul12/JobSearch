@@ -18,6 +18,10 @@
 //= require turbolinks
 //= require components
 //= require_tree .
-submitForm = function(e) {
+var submitForm = function(e) {
   $(e).closest('form').submit();
+}
+
+var hide = function(e) {
+  $(e).parent().empty();
 }

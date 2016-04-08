@@ -36,8 +36,7 @@ class JobApplicationsController < ApplicationController
         format.js
       end
     else
-      flash[:alert] = "Something went wrong"
-      render "new"
+      flash.now[:alert] = "Something went wrong"
     end
   end
 

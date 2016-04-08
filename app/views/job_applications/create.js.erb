@@ -1,1 +1,5 @@
-$(".container").html("<%= j render @job_applications %>")
+<% if flash[:alert] %>
+    $(".container").prepend("<div class='alert alert-danger'><%= alert %></div>");
+<% else %>
+    $(".container").html("<%= j render @job_applications %>");
+<% end %>

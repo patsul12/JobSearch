@@ -17,11 +17,10 @@ describe 'the application creation process' do
   end
 
   it 'does not allow an application to be created with invalid parameters', js: true do
-    10.times do
-      create(:company)
-    end
-    rack_test_session_wrapper = Capybara.current_session.driver
-    rack_test_session_wrapper.submit :post, job_applications_path, {job_application: {user_id: 1, company_id: 1}}
+    visit root_path
+    click_link "New Application"
+    fill_in 'job_application[date_submitted]', with: nil
+    click_button "Create Application"
     expect(page).to have_content('Something went wrong')
   end
 end
