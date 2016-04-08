@@ -2,4 +2,5 @@
     $(".container").prepend("<div class='alert alert-danger'><%= alert %></div>");
 <% else %>
     $(".container").html("<%= j render @job_applications %>");
+    $(".container").prepend("<div id='job-application-form'></div>");
 <% end %>

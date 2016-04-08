@@ -2,6 +2,11 @@
 <div class="job-application-edit-button">
   <button type="button" class="btn btn-alert">Edit</button>
 </div>
+<div class="row">
+  <div class="col-md-12 col-center">
+    <h2><%= job_application.job_applied_for %></h2>
+  </div>
+</div>
 <% if job_application.company %>
   <div class="row application-company-info">
     <h2 class="job-application-company-title"><%= job_application.company.name %></h2>
