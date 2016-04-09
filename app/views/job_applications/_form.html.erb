@@ -1,32 +1,36 @@
-<button type="button" class="btn btn-danger" id="hide-job-application-form" onClick="hide(this)">Hide</button>
-<%= form_for @job_application, html: {multipart: true}, remote: true do |f| %> <%= f.hidden_field :status, value: "applied" %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <div class="form-group">
-    <%= f.label :job_applied_for %>
-    <%= f.text_field :job_applied_for %>
-  </div>
-  <div class="form-group">
-    <%= f.label :date_submitted, "Date Submitted (defaults to the current date)" %>
-    <%= f.date_field :date_submitted, value: Date.today, class: "form-control" %>
-  </div>
-  <div class="form-group" id="company-select-form">
-    <%= f.label :company_id, "Select a Company" %>
-    <% if @companies %>
-      <%= f.select :company_id, @companies.map { |c| [c.name, c.id] }, class: "form-control", id: "company-select" %>
-    <% end %>
-  </div>
-  <div class="form-group">
-    <%= f.label :resume %>
-    <%= f.file_field :resume %>
-    <%= f.label :cover_letter %>
-    <%= f.file_field :cover_letter %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "Create Application", class: "btn btn-success form-control" %>
-  </div>
-<% end %>
-<% if @company %>
-  <%= link_to "Don't see the company you applied to? Click here to create it.", new_company_path, remote: true, id: "new-company-toggle" %>
-  <div id="new-company-form">
-  </div>
-<% end %>
+<div class="row">
+  <button type="button" class="btn btn-danger" id="hide-job-application-form" onClick="hide(this)">X</button>
+</div>
+<div class="row">
+  <%= form_for @job_application, html: {multipart: true}, remote: true do |f| %> <%= f.hidden_field :status, value: "applied" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="form-group">
+      <%= f.label :job_applied_for %>
+      <%= f.text_field :job_applied_for, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :date_submitted, "Date Submitted (defaults to the current date)" %>
+      <%= f.date_field :date_submitted, value: Date.today, class: "form-control" %>
+    </div>
+    <div class="form-group" id="company-select-form">
+      <%= f.label :company_id, "Select a Company" %>
+      <% if @companies %>
+        <%= f.select :company_id, @companies.map { |c| [c.name, c.id] }, class: "form-control", id: "company-select" %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.label :resume %>
+      <%= f.file_field :resume %>
+      <%= f.label :cover_letter %>
+      <%= f.file_field :cover_letter %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Create Application", class: "btn btn-success form-control" %>
+    </div>
+  <% end %>
+  <% if @company %>
+    <%= link_to "Don't see the company you applied to? Click here to create it.", new_company_path, remote: true, id: "new-company-toggle" %>
+    <div id="new-company-form">
+    </div>
+  <% end %>
+</div>

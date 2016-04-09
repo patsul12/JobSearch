@@ -23,5 +23,7 @@ var submitForm = function(e) {
 }
 
 var hide = function(e) {
-  $(e).parent().empty();
+  $(e).parent().parent().slideUp(300, function() {
+    $(e).parent().parent().empty();
+  });
 }
