@@ -9,7 +9,6 @@ describe 'the application status update on the index page path', js: true do
   it 'allows a user to update the status of a given job application', js: true do
     visit root_path
     select 'closed', from: 'job_application[status]'
-    save_and_open_page
     visit root_path
     expect(page).to have_css('#job_application_status option[selected]', text: 'closed')
   end

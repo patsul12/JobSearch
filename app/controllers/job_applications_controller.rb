@@ -1,20 +1,11 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_application, only: [:show, :destroy, :update]
+  before_action :set_application, only: [:show, :destroy, :update, :edit]
   before_action :authenticate_user!
   skip_before_filter :verify_authenticity_token, only: :update
 
   def index
-    @job_applications = JobApplication.where(user_id: current_user.id)
+    @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
     @job_application = JobApplication.new
-    @colorlist = {
-      'applied' => 'applied',
-      'phone screen' => 'phone-screen',
-      'phone interview' => 'phone-interview',
-      'on site interview' => 'on-site-interview',
-      'recieved offer' => 'recieved-offer',
-      'Got the job!' => 'list-group-item-success',
-      'closed' => 'list-group-item-danger'
-    } 
   end
 
   def show
@@ -49,8 +40,15 @@ class JobApplicationsController < ApplicationController
     end
   end
 
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def update
     if @job_application.update_attributes(job_application_params)
+      flash.now[:notice] = "Application submitted on " + @job_application.date_submitted + " updated successfuly"
       respond_to do |format|
         format.js
       end

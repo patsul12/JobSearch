@@ -1,3 +1,12 @@
+<% @colorlist = {
+  'applied' => 'applied',
+  'phone screen' => 'phone-screen',
+  'phone interview' => 'phone-interview',
+  'on site interview' => 'on-site-interview',
+  'recieved offer' => 'recieved-offer',
+  'Got the job!' => 'list-group-item-success',
+  'closed' => 'list-group-item-danger'
+} %>
 <% @color = @colorlist[job_application.status] %>
 <div class="row list-group-item <%= @color %> job-application-tile" id="job-application-tile-<%= job_application.id.to_s %>">
   <div class="col-xs-12 col-md-2">
