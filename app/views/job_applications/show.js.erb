@@ -1,3 +1,4 @@
+// Toggle the show and hide of the prerendered show template for a job application.
 var btnText = $("#job-application-show-toggle-<%= @job_application.id %>").text();
 var newBtnText = "";
 if (btnText == "View Application") {
@@ -7,3 +8,29 @@ if (btnText == "View Application") {
 }
 $("#job-application-show-toggle-<%= @job_application.id %>").text(newBtnText);
 $("#job-application-show-<%= @job_application.id %>").slideToggle()
+// Make ajax request to get glassdoor rating for the applications company.
+var glassdoorPartnerId = "<%= ENV['GLASSDOOR_PARTNER_ID'] %>"
+var glassdoorPartnerKey = "<%= ENV['GLASSDOOR_PARTNER_KEY'] %>"
+var data = {
+  't.p': glassdoorPartnerId,
+  't.k': glassdoorPartnerKey,
+  'v': 1,
+  'format': 'json',
+  'action': 'employers',
+  'userip': '0.0.0.0',
+  'useragent': '',
+  'q': "<%= @job_application.company.name %>"
+};
+$.ajax({
+  url: 'http://api.glassdoor.com/api/api.htm?',
+  method: 'GET',
+  data: data,
+  dataType: 'json',
+  success: function(data) {
+    $("#job-application-company-rating-<%= @job_application.id %>").text(data.response.employers[0].overallRating.toString());
+  },
+  error: function(status, error) {
+    console.log(status);
+    console.log(error);
+  }
+});

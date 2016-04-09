@@ -36,6 +36,7 @@ group :test, :development do
   gem 'warden'
   gem "factory_girl_rails", "~> 4.0"
   gem 'database_cleaner'
+  gem 'dotenv-rails'
 end
 
 group :test do

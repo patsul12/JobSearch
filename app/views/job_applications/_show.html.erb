@@ -11,6 +11,7 @@
   <% if job_application.company %>
     <div class="row application-company-info">
       <h2 class="job-application-company-title"><%= job_application.company.name %></h2>
+      <h3 id="job-application-company-rating-<%= job_application.id.to_s %>">No Rating</h3>
       <div class="col-md-3 col-center">
         <h4>
           <%= job_application.company.address %>
