@@ -4,6 +4,6 @@ if (btnText == "View Application") {
   newBtnText = "Hide Application";
 } else {
   newBtnText = "View Application";
-} 
+}
 $("#job-application-show-toggle-<%= @job_application.id %>").text(newBtnText);
-$("#job-application-show-<%= @job_application.id %>").toggle()
+$("#job-application-show-<%= @job_application.id %>").slideToggle()

@@ -8,7 +8,7 @@
     "closed": "list-group-item-danger"
 
   }
-$("#job-application-tile-<%= @job_application.id.to_s %>").removeClass("list-group-item-danger list-group-item-success applied phone-screen phone-interview on-site-interview recieved-offer").addClass(colors["<%= @job_application.status %>"]);
+$("#job-application-tile-<%= @job_application.id.to_s %>").removeClass("list-group-item-danger list-group-item-success applied phone-screen phone-interview on-site-interview recieved-offer", 0).addClass(colors["<%= @job_application.status %>"], 400);
 $("#job-application-edit-button-<%= @job_application.id.to_s %>").remove();
 $("#job-application-show-container-<%= @job_application.id.to_s %>").html("<%= j render partial: 'show', locals: { job_application: @job_application } %>");
 if ($(".container").find("#notice")[0]) {
