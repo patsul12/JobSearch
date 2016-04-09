@@ -6,6 +6,15 @@ class JobApplicationsController < ApplicationController
   def index
     @job_applications = JobApplication.where(user_id: current_user.id)
     @job_application = JobApplication.new
+    @colorlist = {
+      'applied' => 'applied',
+      'phone screen' => 'phone-screen',
+      'phone interview' => 'phone-interview',
+      'on site interview' => 'on-site-interview',
+      'recieved offer' => 'recieved-offer',
+      'Got the job!' => 'list-group-item-success',
+      'closed' => 'list-group-item-danger'
+    } 
   end
 
   def show
