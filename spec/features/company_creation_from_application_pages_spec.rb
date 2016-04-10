@@ -23,7 +23,7 @@ describe 'the company creation path through the new application route' do
     visit root_path
     click_link "New Application"
     page.find("#new-company-toggle").click
-    find("input.company-submit").click
+    click_button 'Create Application'
     expect(page).to_not have_content("Company added successfully")
   end
 end

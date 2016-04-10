@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe 'the application edit path' do
   it 'allows a user to update an application from the index page', js: true do
+    10.times do
+      create(:company)
+    end
     user = create(:user_with_job_applications)
     login_as(user)
     visit root_path
