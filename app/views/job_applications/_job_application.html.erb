@@ -12,6 +12,9 @@
   <div class="col-xs-12 col-md-2">
     <%= job_application.date_submitted %>
   </div>
+  <div class="col-xs-12 col-md-2">
+    <%= job_application.job_applied_for %>
+  </div>
   <% if job_application.company %>
     <div class="col-xs-12 col-md-2">
       <%= job_application.company.name %>
