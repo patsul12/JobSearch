@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:destroy, :edit]
-
+  before_action :authenticate_user!
   def new
     respond_to do |format|
       format.js

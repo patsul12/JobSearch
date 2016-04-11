@@ -1,11 +1,13 @@
 class JobApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :destroy, :update, :edit, :add_contact]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   skip_before_filter :verify_authenticity_token, only: :update
 
   def index
-    @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
-    @job_application = JobApplication.new
+    if current_user
+      @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
+      @job_application = JobApplication.new
+    end
   end
 
   def show

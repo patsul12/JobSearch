@@ -1,3 +1,7 @@
-<div class="list-group">
-  <%= render @job_applications %>
-</div>
+<% if current_user %>
+  <div class="list-group">
+    <%= render @job_applications %>
+  </div>
+<% else %>
+  <%= render 'application/landing_page' %>
+<% end %>
