@@ -1,2 +1,3 @@
-
-console.log('true')
+$("#new-contact-form").slideToggle()
+$('#new-contact-form').children('form').find("input[type=text], textarea").val('');
+$(".table").append("<%= j render @contact %>");

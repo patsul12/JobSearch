@@ -5,14 +5,15 @@ class ContactsController < ApplicationController
     end
   end
 
-  def Create
-    @contact = current_user.contacts.create(contact_params)
+  def create
+    @user = current_user
+    @contact = @user.contacts.new(contact_params)
     if @contact.save
       respond_to do |format|
         format.js
       end
     else
-      binding.pry
+      redirect_to root_path
     end
   end
 

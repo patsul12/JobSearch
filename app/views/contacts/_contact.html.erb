@@ -1,2 +1,23 @@
-<%= contact.first_name %>
-<%= contact.last_name %>
+<tr>
+  <td>
+    <%= contact.first_name || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.last_name || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.email_address || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.phone_number || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.mailing_address || 'n/a' %>
+  </td>
+  <td>
+    <% if contact.company %>
+      <%= contact.company.name || 'n/a' %>
+    <% else %>
+      'n/a'
+    <% end %>
+  </td>
