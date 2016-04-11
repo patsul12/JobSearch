@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :contact do
     user_id 1
-    company_id 1
+    sequence(:company_id) { |n| n }
     first_name "Test"
     last_name "Contact"
     email_address "test@contact.com"

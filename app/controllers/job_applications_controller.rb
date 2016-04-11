@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_application, only: [:show, :destroy, :update, :edit]
+  before_action :set_application, only: [:show, :destroy, :update, :edit, :add_contact]
   before_action :authenticate_user!
   skip_before_filter :verify_authenticity_token, only: :update
 
@@ -65,6 +65,14 @@ class JobApplicationsController < ApplicationController
     else
       flash[:alert] = "Something went wrong deleting the application"
       redirect_to job_applications_path
+    end
+  end
+
+  def add_contact
+    @contact = Contact.find(params[:contact_id])
+    @job_application.contacts << @contact unless  @job_application.contacts.include?(tag)
+    respond_to do |format|
+      format.js
     end
   end
 

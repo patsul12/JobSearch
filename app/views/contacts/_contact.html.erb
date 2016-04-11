@@ -1,4 +1,4 @@
-<tr>
+<tr id="contact-<%= contact.id.to_s %>">
   <td>
     <%= contact.first_name || 'n/a' %>
   </td>
@@ -21,3 +21,7 @@
       'n/a'
     <% end %>
   </td>
+  <td>
+    <%= link_to "X", contact_path(contact), method: 'DELETE', remote: true, class: "btn btn-danger" %>
+  </td>
+</tr>

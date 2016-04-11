@@ -4,8 +4,8 @@
 </div>
 <div id="job-application-show-container-<%= job_application.id.to_s %>" class="job-application-show-container">
   <div class="row">
-    <div class="col-md-12 col-center">
-      <h2><%= job_application.job_applied_for %></h2>
+    <div class="col-md-12">
+      <h2 class="job-applied-for"><%= job_application.job_applied_for %></h2><hr>
     </div>
   </div>
   <% if job_application.company %>
@@ -38,9 +38,10 @@
   <% else %>
     <h3>No Company assigned to this application</h3>
   <% end %>
+  <hr>
   <div class="application-info row">
     <div class="col-md-12 col-center">
-      <%= job_application.date_submitted %>
+      <h3>Date Submitted: <%= job_application.date_submitted %></h3>
     </div>
     <div class="col-md-12 col-center application-status">
       <h3>Status: <%= job_application.status %></h3>
@@ -56,6 +57,26 @@
       <iframe class="col-md-12 file-attachment" src="<%= job_application.cover_letter.url %>"></iframe>
     <% else %>
       <h4>No Cover Letter Assigned</h4>
+    <% end %>
+  </div>
+  <div id="job-application-<%= job_application.id.to_s %>-contacts">
+    <% if current_user.contacts.length != 0 %>
+      <% job_application.contacts.each do |contact| %>
+        <%= contact.first_name %>
+      <% end %>
+      <button type="button" class="btn btn-primary" onClick="showJobApplicationContactForm(<%= job_application.id.to_s %>)">Add a Contact</button>
+      <div id="job-application-<%= job_application.id.to_s %>-contact-form" hidden>
+        Add a contact:
+        <%= form_tag "/job_applications/#{job_application.id.to_s}/add_contact", method: 'post', remote: true, class: "form-inline" do %>
+          <%= hidden_field_tag :id, job_application.id %>
+          <%= select_tag :contact_id, options_for_select(current_user.contacts.map { |c| [(c.first_name + " " + c.last_name), c.id] }, job_application.status), class: "form-control" %>
+          <%= submit_tag "+", class: "btn btn-success" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div id="job-application-<%= job_application.id.to_s %>-contact-form" hidden>
+        <%= link_to "No Contacts, go here to add one", user_contacts_path(current_user) %>
+      </div>
     <% end %>
   </div>
   <h6>Ratings: <a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a></h6>
