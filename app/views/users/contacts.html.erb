@@ -1,2 +1,13 @@
+<div hidden id="new-contact-form">
+  <%= render 'contact_form' %>
+</div>
 <h2>Your Contacts:</h2>
-<% render @contacts %>
+<div id="contacts-wrapper">
+  <% if @contacts.length == 0 %>
+    <h4>Looks like you don't have any contacts yet, click below to create one.</h4>
+    <%= link_to "Create a contact", new_contact_path, remote: true %>
+  <% else %>
+    <%= link_to "Create a contact", new_contact_path, remote: true %>
+    <% render @contacts %>
+  <% end %>
+</div>

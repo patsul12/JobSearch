@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     get 'contacts', to: 'users#contacts'
   end
+  resources :contacts, only: [:new, :create]
 end

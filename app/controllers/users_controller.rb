@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def contacts
+    @contact = Contact.new
     @contacts = Contact.where(user_id: current_user.id)
+    @companies = Company.all
   end
 
   private
