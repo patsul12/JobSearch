@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :companies, only: [:new, :create, :show]
   resources :users, only: [:show] do
     get 'contacts', to: 'users#contacts'
+    get '/contact/:contact_id', to: 'contacts#update'
   end
-  resources :contacts, only: [:new, :create, :destroy]
+  resources :contacts, only: [:new, :create, :destroy, :edit, :update]
+  post 'contact/:contact_id', to: 'contacts#update'
 end

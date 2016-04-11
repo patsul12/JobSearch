@@ -70,7 +70,7 @@ class JobApplicationsController < ApplicationController
 
   def add_contact
     @contact = Contact.find(params[:contact_id])
-    @job_application.contacts << @contact unless  @job_application.contacts.include?(tag)
+    @job_application.contacts << @contact unless @job_application.contacts.include?(@contact)
     respond_to do |format|
       format.js
     end

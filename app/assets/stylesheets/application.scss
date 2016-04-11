@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require jquery-ui
+ *= require font-awesome
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -83,4 +84,16 @@ span.stars, span.stars span {
 
 span.stars span {
     background-position: 0 0;
+}
+
+span.td {
+  display:table-cell;
+}
+
+form.tr, div.tr {
+  display: table-row;
+}
+
+.inline {
+  display: inline;
 }

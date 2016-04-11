@@ -22,6 +22,9 @@
     <% end %>
   </td>
   <td>
+    <%= link_to (fa_icon "pencil"), edit_contact_path(contact), remote: true, class: "btn btn-warning" %>
+  </td>
+  <td>
     <%= link_to "X", contact_path(contact), method: 'DELETE', remote: true, class: "btn btn-danger" %>
   </td>
 </tr>

@@ -22,7 +22,6 @@ describe 'the application creation process' do
     click_link "New Application"
     fill_in 'job_application[date_submitted]', with: nil
     click_button "Create Application"
-    sleep 1
-    expect(page).to have_content('Something went wrong')
+    expect(page).to have_content('Something went wrong', wait: 5)
   end
 end

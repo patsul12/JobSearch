@@ -16,6 +16,7 @@ gem 'rails-jquery-autocomplete'
 gem 'devise'
 gem 'react-rails', '~> 1.6.0'
 gem 'd3-rails'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'rails_12factor'

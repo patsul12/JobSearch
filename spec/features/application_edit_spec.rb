@@ -12,7 +12,7 @@ describe 'the application edit path' do
     click_link 'Edit'
     fill_in 'job_application[job_applied_for]', with: 'Test Job'
     click_button 'Update Application'
-    expect(page).to have_content("Application submitted on " + Date.today.to_s + " updated successfuly")
+    expect(page).to have_content("Application submitted on " + Date.today.to_s + " updated successfuly", wait: 5)
     expect(page).to have_content("Test Job")
   end
 end
