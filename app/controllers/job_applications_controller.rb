@@ -4,10 +4,8 @@ class JobApplicationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :update
 
   def index
-    if current_user
-      @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
-      @job_application = JobApplication.new
-    end
+    @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
+    @job_application = JobApplication.new
   end
 
   def show
