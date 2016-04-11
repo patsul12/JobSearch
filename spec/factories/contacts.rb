@@ -1,10 +1,11 @@
 FactoryGirl.define do
   factory :contact do
-    first_name "MyString"
-    last_name "MyString"
-    email_address "MyString"
-    phone_number "MyString"
-    mailing_address "MyString"
-    references ""
+    user_id 1
+    company_id 1
+    first_name "Test"
+    last_name "Contact"
+    email_address "test@contact.com"
+    phone_number "(555)555-5555"
+    mailing_address "1234 Test Way"
   end
 end

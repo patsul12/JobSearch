@@ -1,4 +1,6 @@
 <% if notice %>
+  $(".container").html("<%= j render partial: 'job_applications/form', locals: { job_application: @job_application } %>");
+  $("#new_company_toggle").toggle();
   $(".container").prepend("<div class='alert alert-success'>\
                              <%= flash[:notice] %>\
                            </div>");

@@ -2,16 +2,27 @@
 <div id="job-application-edit-button-<%= job_application.id.to_s %>">
   <%= link_to "Edit", edit_job_application_path(job_application), remote: true, class: "btn btn-warning" %>
 </div>
-<div id="job-application-show-container-<%= job_application.id.to_s %>">
+<div id="job-application-show-container-<%= job_application.id.to_s %>" class="job-application-show-container">
   <div class="row">
     <div class="col-md-12 col-center">
       <h2><%= job_application.job_applied_for %></h2>
     </div>
   </div>
   <% if job_application.company %>
-    <div class="row application-company-info">
+    <div class="row application-company-info col-center">
       <h2 class="job-application-company-title"><%= job_application.company.name %></h2>
-      <h3 id="job-application-company-rating-<%= job_application.id.to_s %>">No Rating</h3>
+      <div id="job-application-company-image-<%= job_application.id.to_s %>">
+        <!-- company image goes here, pulled from glassdoor api -->
+      </div>
+      <div class="job-application-company-rating" id="job-application-company-rating-<%= job_application.id.to_s %>">
+        Company Rating: <span class="stars overall-rating"></span>
+        <button class="btn btn-primary" onClick="toggleClosestRatingInfo(this)">More rating info</button>
+        <div hidden class="more-rating-info">
+          Compensation: <span class="rating-span compensation-rating stars">n/a</span>
+          Culture and Values: <span class="rating-span culture-and-values-rating stars">n/a</span>
+          Career Opportunity: <span class="rating-span career-op-rating stars">n/a</span>
+        </div>
+      </div>
       <div class="col-md-3 col-center">
         <h4>
           <%= job_application.company.address %>

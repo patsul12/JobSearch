@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def contacts
+    @contacts = Contact.where(user_id: current_user.id)
+  end
+
   private
 
   def set_user

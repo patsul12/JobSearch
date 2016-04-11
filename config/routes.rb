@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     get :autocomplete_company_name, on: :collection
   end
   resources :companies, only: [:new, :create, :show]
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    get 'contacts', to: 'users#contacts'
+  end
 end

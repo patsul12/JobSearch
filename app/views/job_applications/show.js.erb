@@ -8,6 +8,7 @@ if (btnText == "View Application") {
 }
 $("#job-application-show-toggle-<%= @job_application.id %>").text(newBtnText);
 $("#job-application-show-<%= @job_application.id %>").slideToggle()
+
 // Make ajax request to get glassdoor rating for the applications company.
 var glassdoorPartnerId = "<%= ENV['GLASSDOOR_PARTNER_ID'] %>"
 var glassdoorPartnerKey = "<%= ENV['GLASSDOOR_PARTNER_KEY'] %>"
@@ -21,13 +22,24 @@ var data = {
   'useragent': '',
   'q': "<%= @job_application.company.name %>"
 };
+
 $.ajax({
   url: 'https://api.glassdoor.com/api/api.htm?',
   method: 'GET',
   data: data,
   dataType: 'json',
   success: function(data) {
-    $("#job-application-company-rating-<%= @job_application.id %>").text(data.response.employers[0].overallRating.toString());
+    var data = data.response.employers[0];
+    var careerOpportunitiesRating = data.careerOpportunitiesRating,
+        compensationAndBenefitesRating = data.compensationAndBenefitesRating,
+        cultureAndValuesRating = data.cultureAndValuesRating,
+        overallRating = data.overallRating;
+
+    $("#job-application-company-rating-<%= @job_application.id %> .career-op-rating").text(careerOpportunitiesRating);
+    $("#job-application-company-rating-<%= @job_application.id %> .compensation-rating").text(compensationAndBenefitesRating);
+    $("#job-application-company-rating-<%= @job_application.id %> .culture-and-values-rating").text(cultureAndValuesRating);
+    $("#job-application-company-rating-<%= @job_application.id %> .overall-rating").text(overallRating);
+    $('span.stars').stars();
   },
   error: function(status, error) {
     console.log(status);

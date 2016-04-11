@@ -9,6 +9,8 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.create(company_params)
+    @job_application = JobApplication.new
+    @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
     if @company.save
       flash.now[:notice] = "Company added successfully"
       @companies = Company.all
