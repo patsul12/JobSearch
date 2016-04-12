@@ -30,7 +30,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-    @job_application = JobApplication.create(job_application_params)
+    @job_application = JobApplication.new(job_application_params)
     @job_applications = JobApplication.where(user_id: current_user.id)
     if @job_application.save
       respond_to do |format|

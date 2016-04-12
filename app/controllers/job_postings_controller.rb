@@ -20,6 +20,18 @@ class JobPostingsController < ApplicationController
     end
   end
 
+  def chrome_create
+    @job_posting = JobPosting.new(job_posting_params)
+    if @job_posting.save
+      respond_to do |format|
+        format.html { render 'chrome_create'}
+      end
+    else
+      flash.now[:alert] = "Something went wrong"
+    end
+  end
+
+
 private
 
   def job_posting_params

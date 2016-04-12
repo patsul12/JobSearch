@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   post 'contact/:contact_id', to: 'contacts#update'
 
   resources :job_postings
+  post '/job_postings/chrome_create', to: 'job_postings#chrome_create'
 end
