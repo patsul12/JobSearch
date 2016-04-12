@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create, :destroy, :edit, :update]
   post 'contact/:contact_id', to: 'contacts#update'
 
-  resources :job_postings, only: [:index, :new, :create]
+  resources :job_postings
 end
