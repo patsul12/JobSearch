@@ -1,6 +1,9 @@
 <div hidden id="new-contact-form">
   <%= render 'contacts/form' %>
 </div>
+<div class='import-contacts'>
+  <%= link_to (fa_icon "google"), '/contacts/gmail' %>
+</div>
 <h2>Your Contacts:</h2>
 <div id="contacts-wrapper">
   <% if @contacts.length == 0 %>

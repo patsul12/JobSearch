@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 
   resources :job_postings
   post '/job_postings/chrome_create', to: 'job_postings#chrome_create'
+  get '/contacts/:importer/callback', to: 'contacts#callback'
 end

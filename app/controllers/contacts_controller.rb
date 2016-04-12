@@ -19,6 +19,24 @@ class ContactsController < ApplicationController
     end
   end
 
+  def callback
+    @contacts = request.env['omnicontacts.contacts']
+    @user = current_user
+    @contacts.each do |contact|
+      new_contact = Contact.new({
+                      user_id: current_user.id,
+                      first_name: contact[:first_name],
+                      last_name: contact[:last_name],
+                      email_address: contact[:email],
+                      phone_number: contact[:phone_number],
+                      mailing_address: "#{contact[:address_1]} #{contact[:city]}, #{contact[:region]} #{contact[:country]}"
+                    });
+      new_contact.save
+    end
+    flash[:notice] = "Contacts imported successfully"
+    redirect_to user_contacts_path(current_user)
+  end
+
   def edit
     @current_contact = Contact.find(params[:id])
     @companies = Company.all
