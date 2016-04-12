@@ -1,8 +1,8 @@
-<div class="job-posting-tile">
+<div class="job-posting-tile list-group-item">
   <div class="job-posting-position">
-    <%= job_posting.position %>
+    Position: <%= job_posting.position %> <span class="badge pull-right">Jobs With Same Title: <%= job_posting.position_count %></span>
   </div>
   <div class="job-posting-url">
-    <%= job_posting.url %>
+    Url: <%= job_posting.url %> <span class="badge pull-right">Users Following: <%= job_posting.url_count %></span>
   </div>
 </div>
