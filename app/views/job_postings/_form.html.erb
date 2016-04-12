@@ -1,4 +1,5 @@
-<%= form_for @posting, remote: true do |f| %>
+<%= form_for @job_posting, remote: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="form-group">
     <%= f.label :position %>
     <%= f.text_field :position, class: "form-control" %>

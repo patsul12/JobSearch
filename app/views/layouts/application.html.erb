@@ -30,6 +30,7 @@
                 <li><%= link_to "Your Profile", user_path(current_user) %></li>
                 <li><%= link_to "Contacts", user_contacts_path(current_user) %></li>
                 <li><%= link_to "Applications", root_path %></li>
+                <li><%= link_to "Job Postings", job_postings_path %></li>
               </ul>
             </li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>

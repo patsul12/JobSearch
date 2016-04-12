@@ -1,15 +1,16 @@
 class JobPostingsController < ApplicationController
   def index
-    @postings = JobPosting.where(user_id: current_user.id)
-    @posting = JobPosting.new
+    @job_postings = JobPosting.where(user_id: current_user.id)
+    @job_posting = JobPosting.new
   end
 
   def new
   end
 
   def create
-    @posting = JobPosting.new(job_posting_params)
-    if @posting.save
+    @job_posting = JobPosting.new(job_posting_params)
+    if @job_posting.save
+      flash.now[:notice] = "Posting Created Successfully"
       respond_to do |format|
         format.js
       end
@@ -22,6 +23,6 @@ class JobPostingsController < ApplicationController
 private
 
   def job_posting_params
-    params.require(:job_posting).permit(:url, :position)
+    params.require(:job_posting).permit(:url, :position, :user_id)
   end
 end
