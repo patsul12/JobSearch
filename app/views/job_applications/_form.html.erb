@@ -28,7 +28,7 @@
         <%= f.file_field :cover_letter %>
       </div>
       <div class="form-group">
-        <%= f.submit "Create Application", class: "btn btn-success form-control" %>
+        <%= f.button "Create Application", type: 'submit', class: "btn btn-success form-control", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>"} %>
       </div>
     <% end %>
     <% if @company %>

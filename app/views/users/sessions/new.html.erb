@@ -19,7 +19,7 @@
   <% end -%>
 
   <div class="form-group">
-    <%= f.submit "Log in", class: "btn btn-block btn-success " %>
+    <%= f.button "Log in", type: 'submit', class: "btn btn-block btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>"} %>
   </div>
 <% end %>
 

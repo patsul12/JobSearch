@@ -11,13 +11,13 @@
  * file per style scope.
  *
  *= require jquery-ui
- *= require font-awesome
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootswatch";
 @import "main";
 @import "animate";
+@import "font-awesome";
 
 .col-center {
   margin: auto;

@@ -7,7 +7,7 @@
   </div>
   <div class="job-posting-url">
     <%= fa_icon 'link' %>
-    <%= link_to job_posting.url, "http://#{job_posting.url}" %>
+    <%= link_to nil, "#{job_posting.url}", target: '_blank' %>
     <span class="badge pull-right">Users Following: <%= job_posting.url_count %></span>
   </div>
   <div class="posting-details" hidden>
