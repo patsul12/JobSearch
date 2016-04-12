@@ -37,6 +37,10 @@ var toggleClosestRatingInfo = function(e) {
   $(e).siblings(".more-rating-info").slideToggle()
 }
 
+var toggleNewPosting = function() {
+  $("#new-posting-form").slideToggle();
+}
+
 var showJobApplicationContactForm = function(id) {
   $("#job-application-"+ id +"-contact-form").slideToggle();
 }
