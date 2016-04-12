@@ -47,7 +47,7 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:contact_id])
-    @contacts = current_user.contacts.order(updated_at: "asc")
+    @contacts = current_user.contacts.order(last_name: "asc")
     if @contact.update(form_tag_params)
       respond_to do |format|
         format.js

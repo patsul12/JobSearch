@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def contacts
     @contact = Contact.new
-    @contacts = Contact.where(user_id: current_user.id)
+    @contacts = Contact.where(user_id: current_user.id).order(last_name: 'asc')
     @companies = Company.all
   end
 
