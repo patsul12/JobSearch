@@ -15,6 +15,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootswatch";
+@import "main";
+@import "animate";
+@import "font-awesome";
 
 .col-center {
   margin: auto;
@@ -44,19 +47,19 @@
 }
 
 .phone-screen {
-  background-color: #9b59b6;
+  background-color: #AED1D1;
 }
 
 .phone-interview {
-  background-color: #2ecc71;
+  background-color: #C1E8C1;
 }
 
 .on-site-interview {
-  background-color: #e67e22;
+  background-color: #E9B081;
 }
 
 .recieved-offer {
-  background-color: #d35400;
+  background-color: #6ABA68;
 }
 
 #hide-job-application-form {
@@ -83,4 +86,16 @@ span.stars, span.stars span {
 
 span.stars span {
     background-position: 0 0;
+}
+
+span.td {
+  display:table-cell;
+}
+
+form.tr, div.tr {
+  display: table-row;
+}
+
+.inline {
+  display: inline;
 }

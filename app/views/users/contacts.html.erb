@@ -1,5 +1,8 @@
 <div hidden id="new-contact-form">
-  <%= render 'contact_form' %>
+  <%= render 'contacts/form' %>
+</div>
+<div class='import-contacts'>
+  <%= link_to (fa_icon "google"), '/contacts/gmail' %>
 </div>
 <h2>Your Contacts:</h2>
 <div id="contacts-wrapper">
@@ -8,6 +11,18 @@
     <%= link_to "Create a contact", new_contact_path, remote: true %>
   <% else %>
     <%= link_to "Create a contact", new_contact_path, remote: true %>
-    <% render @contacts %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+        <th>Mailing Address</th>
+        <th>Company</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <%= render @contacts %>
+      </table>
+    </div>
   <% end %>
 </div>

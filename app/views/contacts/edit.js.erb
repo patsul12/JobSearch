@@ -1,0 +1,1 @@
+$("#contact-<%= @contact.id.to_s %>").html("<%= j render partial: 'table_form', locals: { companies: @companies, contact: @current_contact } %>")

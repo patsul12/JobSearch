@@ -12,4 +12,14 @@ describe 'the application status update on the index page path', js: true do
     visit root_path
     expect(page).to have_css('#job_application_status option[selected]', text: 'closed')
   end
+
+  it 'wont allow a user to update an application with invalid parameters', js: true do
+    visit root_path
+    click_link 'View Application'
+    save_and_open_page
+    click_link 'Edit'
+    fill_in :job_applied_for, with: nil
+    click_link 'Update Application'
+    expect(page).to_not have_content("View Application")
+  end
 end

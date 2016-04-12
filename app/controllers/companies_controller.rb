@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-
   def new
     @company = Company.new
     respond_to do |format|

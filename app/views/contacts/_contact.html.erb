@@ -1,2 +1,30 @@
-<%= contact.first_name %>
-<%= contact.last_name %>
+<tr id="contact-<%= contact.id.to_s %>">
+  <td>
+    <%= contact.first_name || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.last_name || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.email_address || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.phone_number || 'n/a' %>
+  </td>
+  <td>
+    <%= contact.mailing_address || 'n/a' %>
+  </td>
+  <td>
+    <% if contact.company %>
+      <%= contact.company.name || 'n/a' %>
+    <% else %>
+      'n/a'
+    <% end %>
+  </td>
+  <td>
+    <%= link_to (fa_icon "pencil"), edit_contact_path(contact), remote: true, class: "btn btn-warning" %>
+  </td>
+  <td>
+    <%= link_to "X", contact_path(contact), method: 'DELETE', remote: true, class: "btn btn-danger" %>
+  </td>
+</tr>

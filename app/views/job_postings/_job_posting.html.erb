@@ -1,0 +1,19 @@
+<div class="job-posting-tile list-group-item" onClick="showPostingDetails(this)">
+  <div class="job-posting-position list-group-item-heading">
+    <%= link_to "X", job_posting_path(job_posting), method: 'delete', remote: 'true', class: 'btn btn-sm btn-danger job-posting-delete pull-right' %>
+    <%= link_to (fa_icon 'pencil'), edit_job_posting_path(job_posting), remote: 'true', class: 'btn btn-sm btn-warning job-posting-deletev pull-right' %>
+    <br>
+    <h2><%= job_posting.position %> at <%= job_posting.company_name || 'Unknown' %><span class="badge pull-right">Jobs With Same Title: <%= job_posting.position_count %></span></h2>
+  </div>
+  <div class="job-posting-url">
+    <%= fa_icon 'link' %>
+    <%= link_to nil, "#{job_posting.url}", target: '_blank' %>
+    <span class="badge pull-right">Users Following: <%= job_posting.url_count %></span>
+  </div>
+  <div class="posting-details" hidden>
+    <h4>Description:</h4>
+    <div class="job-posting-description">
+      <%= job_posting.description || "description not provided" %>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,13 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_application, only: [:show, :destroy, :update, :edit]
-  before_action :authenticate_user!
+  before_action :set_application, only: [:show, :destroy, :update, :edit, :add_contact]
+  before_action :authenticate_user!, except: [:index]
   skip_before_filter :verify_authenticity_token, only: :update
 
   def index
-    @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
-    @job_application = JobApplication.new
+    if current_user
+      @job_applications = JobApplication.where(user_id: current_user.id).order(date_submitted: "desc")
+      @job_application = JobApplication.new
+    end
   end
 
   def show
@@ -19,7 +21,6 @@ class JobApplicationsController < ApplicationController
     @job_application = JobApplication.new
     @companies = Company.all
     if @companies.first == nil
-      flash[:alert] = "Looks like no companies are in the database yet. Create one to continue"
       @companies = nil
     end
     @company = Company.new
@@ -29,7 +30,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-    @job_application = JobApplication.create(job_application_params)
+    @job_application = JobApplication.new(job_application_params)
     @job_applications = JobApplication.where(user_id: current_user.id)
     if @job_application.save
       respond_to do |format|
@@ -65,6 +66,14 @@ class JobApplicationsController < ApplicationController
     else
       flash[:alert] = "Something went wrong deleting the application"
       redirect_to job_applications_path
+    end
+  end
+
+  def add_contact
+    @contact = Contact.find(params[:contact_id])
+    @job_application.contacts << @contact unless @job_application.contacts.include?(@contact)
+    respond_to do |format|
+      format.js
     end
   end
 

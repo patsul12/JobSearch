@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408211608) do
+ActiveRecord::Schema.define(version: 20160412165037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(version: 20160408211608) do
     t.integer  "cover_letter_file_size"
     t.datetime "cover_letter_updated_at"
     t.string   "job_applied_for"
+  end
+
+  create_table "job_postings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "position"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "company_name"
+    t.string   "description"
   end
 
   create_table "users", force: :cascade do |t|

@@ -28,7 +28,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class: "btn btn-block btn-warning" %>
+    <%= f.button "Update", type: 'submit', class: "btn btn-block btn-warning", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>"} %>
   </div>
 <% end %>
 

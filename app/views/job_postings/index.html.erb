@@ -1,0 +1,9 @@
+<button type="button" class="btn btn-primary" onClick="toggleNewPosting()">New Posting</button>
+<div id="new-posting-form" hidden>
+  <%= render 'form' %>
+</div>
+<div id="job-postings-container">
+  <div class="list-group">
+    <%= render @job_postings %>
+  </div>
+</div>

@@ -37,6 +37,18 @@ var toggleClosestRatingInfo = function(e) {
   $(e).siblings(".more-rating-info").slideToggle()
 }
 
+var toggleNewPosting = function() {
+  $("#new-posting-form").slideToggle();
+}
+
+var showJobApplicationContactForm = function(id) {
+  $("#job-application-"+ id +"-contact-form").slideToggle();
+}
+
+var showPostingDetails = function(e) {
+  $(e).children('.posting-details').slideToggle();
+}
+
 // stars function used to display glassdoor overall company rating in a pretty format.
 $.fn.stars = function() {
     return $(this).each(function() {
