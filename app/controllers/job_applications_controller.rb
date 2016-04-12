@@ -21,7 +21,6 @@ class JobApplicationsController < ApplicationController
     @job_application = JobApplication.new
     @companies = Company.all
     if @companies.first == nil
-      flash[:alert] = "Looks like no companies are in the database yet. Create one to continue"
       @companies = nil
     end
     @company = Company.new

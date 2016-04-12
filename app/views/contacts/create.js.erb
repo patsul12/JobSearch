@@ -1,3 +1,4 @@
 $("#new-contact-form").slideToggle()
 $('#new-contact-form').children('form').find("input[type=text], textarea").val('');
 $(".table").append("<%= j render @contact %>");
+$("#contact-<%= @contact.id %>").addClass("success").hide().fadeIn(400).fadeOut(400).fadeIn(400);
