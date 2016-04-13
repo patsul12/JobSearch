@@ -1,7 +1,8 @@
 <div hidden id="new-contact-form">
   <%= render 'contacts/form' %>
 </div>
-<div class='import-contacts'>
+<div class='import-contacts pull-right'>
+  Import From |
   <%= link_to (fa_icon "google"), '/contacts/gmail' %>
 </div>
 <h2>Your Contacts:</h2>
@@ -13,8 +14,8 @@
     <%= link_to "Create a contact", new_contact_path, remote: true %>
     <div class="table-responsive">
       <table class="table table-striped">
-        <th>First Name</th>
         <th>Last Name</th>
+        <th>First Name</th>
         <th>Email Address</th>
         <th>Phone Number</th>
         <th>Mailing Address</th>

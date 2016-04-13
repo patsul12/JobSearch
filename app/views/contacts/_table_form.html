@@ -1,10 +1,10 @@
 <%= form_tag "/contact/#{contact.id}", method: "patch", remote: true, id: "edit_contact_#{contact.id}" do %>
   <%= hidden_field_tag :user_id, value: current_user.id, form: "edit_contact_#{contact.id.to_s}" %>
   <td>
-    <%= text_field_tag :first_name, contact.first_name, class: "form-control", form: "edit_contact_#{contact.id.to_s}" %>
+    <%= text_field_tag :last_name, contact.last_name, class: "form-control", form: "edit_contact_#{contact.id.to_s}" %>
   </td>
   <td>
-    <%= text_field_tag :last_name, contact.last_name, class: "form-control", form: "edit_contact_#{contact.id.to_s}" %>
+    <%= text_field_tag :first_name, contact.first_name, class: "form-control", form: "edit_contact_#{contact.id.to_s}" %>
   </td>
   <td>
     <%= email_field_tag :email_address, contact.email_address, class: "form-control", form: "edit_contact_#{contact.id.to_s}" %>

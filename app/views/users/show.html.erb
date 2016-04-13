@@ -1,3 +1,4 @@
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 <div class="row user">
   <img class="col-md-4 user-avatar-image" src="https://placehold.it/300x300">
   <div class="col-md-8">
@@ -16,8 +17,6 @@
 </div>
 <div class="row user-graphs">
   <div class="col-md-12">
-    Graph that shows users job application history
+    <%= column_chart @user.job_applications.group_by_day(:date_submitted).count %>
   </div>
 </div>
-
-

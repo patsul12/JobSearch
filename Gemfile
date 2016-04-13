@@ -18,6 +18,8 @@ gem 'react-rails', '~> 1.6.0'
 gem 'd3-rails'
 gem 'font-awesome-rails'
 gem 'omnicontacts'
+gem 'groupdate'
+gem 'chartkick'
 
 group :production do
   gem 'rails_12factor'
