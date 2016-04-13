@@ -5,7 +5,9 @@
 </div>
 <div class="row">
   <div class="col-md-10 col-center">
-    <%= form_for @job_application, html: {multipart: true}, remote: true do |f| %> <%= f.hidden_field :status, value: "applied" %>
+    <%= form_for @job_application, html: {multipart: true}, remote: true do |f| %>
+      <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+      <%= f.hidden_field :status, value: "applied" %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="form-group">
         <%= f.label :job_applied_for %>

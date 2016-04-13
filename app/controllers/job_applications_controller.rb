@@ -1,7 +1,7 @@
 class JobApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :destroy, :update, :edit, :add_contact]
   before_action :authenticate_user!, except: [:index]
-  skip_before_filter :verify_authenticity_token, only: :update
+  skip_before_filter :verify_authenticity_token, only: [:update, :create]
 
   def index
     if current_user
@@ -25,6 +25,7 @@ class JobApplicationsController < ApplicationController
     end
     @company = Company.new
     respond_to do |format|
+      format.html { render '_show' }
       format.js
     end
   end
@@ -34,10 +35,12 @@ class JobApplicationsController < ApplicationController
     @job_applications = JobApplication.where(user_id: current_user.id)
     if @job_application.save
       respond_to do |format|
+        format.html { render 'index' }
         format.js
       end
     else
       flash.now[:alert] = "Something went wrong"
+      redirect_to root_path
     end
   end
 

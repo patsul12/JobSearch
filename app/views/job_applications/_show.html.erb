@@ -4,7 +4,7 @@
 </div>
 <div id="job-application-show-container-<%= job_application.id.to_s %>" class="job-application-show-container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-10 col-center">
       <h2 class="job-applied-for"><%= job_application.job_applied_for %></h2><hr>
     </div>
   </div>
@@ -13,15 +13,6 @@
       <h2 class="job-application-company-title"><%= job_application.company.name %></h2>
       <div id="job-application-company-image-<%= job_application.id.to_s %>">
         <!-- company image goes here, pulled from glassdoor api -->
-      </div>
-      <div class="job-application-company-rating" id="job-application-company-rating-<%= job_application.id.to_s %>">
-        Company Rating: <span class="stars overall-rating"></span>
-        <button class="btn btn-primary" onClick="toggleClosestRatingInfo(this)">More rating info</button>
-        <div hidden class="more-rating-info">
-          Compensation: <span class="rating-span compensation-rating stars">n/a</span>
-          Culture and Values: <span class="rating-span culture-and-values-rating stars">n/a</span>
-          Career Opportunity: <span class="rating-span career-op-rating stars">n/a</span>
-        </div>
       </div>
       <div class="col-md-3 col-center">
         <h4>
@@ -34,36 +25,73 @@
           </a>
         <h4>
       </div>
+      <div class="job-application-company-rating" id="job-application-company-rating-<%= job_application.id.to_s %>">
+        Company Rating: <span class="stars overall-rating"></span>
+        <button class="btn btn-primary" onClick="toggleClosestRatingInfo(this)">More rating info</button>
+        <div hidden class="more-rating-info">
+          Compensation: <span class="rating-span compensation-rating stars">n/a</span>
+          Culture and Values: <span class="rating-span culture-and-values-rating stars">n/a</span>
+          Career Opportunity: <span class="rating-span career-op-rating stars">n/a</span>
+        </div>
+      </div>
     </div>
   <% else %>
     <h3>No Company assigned to this application</h3>
   <% end %>
   <hr>
   <div class="application-info row">
-    <div class="col-md-12 col-center">
+    <div class="col-md-10 col-center">
       <h3>Date Submitted: <%= job_application.date_submitted %></h3>
     </div>
-    <div class="col-md-12 col-center application-status">
+    <div class="col-md-10 col-center application-status">
       <h3>Status: <%= job_application.status %></h3>
     </div>
     <% if job_application.resume.file? %>
       <h3>Resume:</h3>
-      <iframe class="col-md-12 file-attachment" src="<%= job_application.resume.url %>"></iframe>
+      <iframe class="col-md-8 col-center file-attachment" src="<%= job_application.resume.url %>"></iframe>
     <% else %>
-      <h4>No Resume Assigned</h4>
+      <div class="col-md-8 col-center">
+        <h4>No Resume Assigned</h4>
+      </div>
     <% end %>
     <% if job_application.cover_letter.file? %>
       <h3>Cover Letter:</h3>
-      <iframe class="col-md-12 file-attachment" src="<%= job_application.cover_letter.url %>"></iframe>
+      <iframe class="col-md-8 col-center file-attachment" src="<%= job_application.cover_letter.url %>"></iframe>
     <% else %>
-      <h4>No Cover Letter Assigned</h4>
+      <div class="col-md-8 col-center">
+        <h4>No Cover Letter Assigned</h4>
+      </div>
     <% end %>
   </div>
   <div id="job-application-<%= job_application.id.to_s %>-contacts">
     <% if current_user.contacts.length != 0 %>
-      <% job_application.contacts.each do |contact| %>
-        <%= contact.first_name %>
-      <% end %>
+      <div class="col-md-8 col-center">
+        <h4>Contacts</h4>
+        <div class="table-responsive">
+          <table class="table table-striped" style="text-align: left;">
+            <th>
+              Last Name
+            </th>
+            <th>
+              First Name
+            </th>
+            <th>
+              Email
+            </th>
+            <th>
+              Phone Number
+            </th>
+            <% job_application.contacts.each do |contact| %>
+              <tr>
+                <td><%= contact.last_name || "n/a" %></td>
+                <td><%= contact.first_name || "n/a" %></td>
+                <td><a href="mailto:<%= contact.email_address %>"><%= contact.email_address || "n/a" %></td>
+                <td><%= contact.phone_number || "n/a" %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
       <button type="button" class="btn btn-primary" onClick="showJobApplicationContactForm(<%= job_application.id.to_s %>)">Add a Contact</button>
       <div id="job-application-<%= job_application.id.to_s %>-contact-form" hidden>
         Add a contact:
