@@ -26,7 +26,7 @@
     <% end %>
   </div>
   <div class="col-xs-12 col-md-2">
-    <%= link_to "View Application", job_application_path(job_application), method: "get", remote: "true", class: "btn btn-primary btn-block", id: "job-application-show-toggle-" + job_application.id.to_s %>
+    <%= link_to "View Application", job_application_path(job_application), method: "get", remote: "true", class: "btn btn-primary btn-block view-application", id: "job-application-show-toggle-" + job_application.id.to_s %>
   </div>
   <div class="col-xs-12 col-md-2">
     <%= link_to "delete", job_application_path(job_application), method: "delete", remote: true, class: "btn btn-danger btn-block" %>

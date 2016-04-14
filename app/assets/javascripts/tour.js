@@ -1,7 +1,15 @@
 $(document).ready(function() {
 
   $("#new-job-application-button").on("click", function() {
-    tour.goTo(2);
+    window.setTimeout(function() { return tour.goTo(2) }, 400);
+  });
+
+  $(".btn-success").on("click", function() {
+    window.setTimeout(function() { return tour.goTo(8) }, 1000);
+  });
+
+  $(".view-application").on("click", function() {
+    window.setTimeout(function() { return tour.goTo(9) }, 400);
   });
 
   var tour = new Tour({
@@ -62,12 +70,27 @@ $(document).ready(function() {
         reflex: true
       },
       {
-        element: "[name='View Application']",
+        element: ".view-application",
         title: "Details",
         content: "Click here to view all the details of your newly created Job Application.",
         placement: "bottom",
         reflex: true
       },
+      {
+        element: ".job-application-tile",
+        title: "Details",
+        content: "This is the application you just created, feel free to browse arround and click the big yellow edit button if you want to change it. Click next to continue the tour.",
+        placement: "bottom",
+        reflex: true
+      },
+      {
+        element: ".dropdown",
+        title: "Conclusion",
+        content: "That's it for the tour! If you'd like to continue we suggest clicking the dropdown menu above to explore the rest of the sites features. Thanks, and happy job searching\
+                  ~~~ Patrick ~~~",
+        placement: "bottom",
+        reflex: true
+      }
     ]
   });
 
