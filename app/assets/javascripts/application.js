@@ -18,7 +18,7 @@
 //= require d3
 //= require turbolinks
 //= require components
-//= require_tree .
+//= require_directory .
 
 // WORKAROUND: submits the closest form. allows for updating of info through a html select.
 var submitForm = function(e) {
