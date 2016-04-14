@@ -34,12 +34,13 @@ class JobApplicationsController < ApplicationController
     @job_application = JobApplication.new(job_application_params)
     @job_applications = JobApplication.where(user_id: current_user.id)
     if @job_application.save
+      flash.now[:notice] = "Application created successfuly"
       respond_to do |format|
         format.html { render 'index' }
         format.js
       end
     else
-      flash.now[:alert] = "Something went wrong"
+      flash[:alert] = "Something went wrong"
       redirect_to root_path
     end
   end

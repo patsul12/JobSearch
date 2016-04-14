@@ -20,7 +20,7 @@ var data = {
   'action': 'employers',
   'userip': '0.0.0.0',
   'useragent': '',
-  'q': "<%= @job_application.company.name %>"
+  'q': "<%= @job_application.company.name unless @job_application.company == nil %>"
 };
 
 $.ajax({
