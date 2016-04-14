@@ -11,7 +11,7 @@ FactoryGirl.define do
         job_applications_count 1
       end
       after :create do |user, evaluator|
-        create_list(:job_application, evaluator.job_applications_count, user: user)
+        create_list(:job_application, evaluator.job_applications_count, user: user, company_id: 1)
       end
     end
 

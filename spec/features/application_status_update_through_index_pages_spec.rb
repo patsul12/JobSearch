@@ -16,7 +16,6 @@ describe 'the application status update on the index page path', js: true do
   it 'wont allow a user to update an application with invalid parameters', js: true do
     visit root_path
     click_link 'View Application'
-    save_and_open_page
     click_link 'Edit'
     fill_in :job_applied_for, with: nil
     click_link 'Update Application'
