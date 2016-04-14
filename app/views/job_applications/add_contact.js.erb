@@ -1,1 +1,6 @@
-console.log('working')
+$("#table-<%= @job_application.id %>").append("<tr>\
+                      <td><%= @contact.last_name || 'n/a' %></td>\
+                      <td><%= @contact.first_name || 'n/a' %></td>\
+                      <td><a href='mailto:<%= @contact.email_address %>'><%= @contact.email_address || 'n/a' %></td>\
+                      <td><%= @contact.phone_number || 'n/a' %></td>\
+                    </tr>")

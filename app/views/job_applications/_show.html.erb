@@ -68,7 +68,7 @@
       <div class="col-md-8 col-center">
         <h4>Contacts</h4>
         <div class="table-responsive">
-          <table class="table table-striped" style="text-align: left;">
+          <table id="table-<%= job_application.id %>"class="table table-striped" style="text-align: left;">
             <th>
               Last Name
             </th>
@@ -100,6 +100,7 @@
           <%= select_tag :contact_id, options_for_select(current_user.contacts.map { |c| [((c.first_name || "n/a") + " " + (c.last_name || "n/a")), c.id] }, job_application.status), class: "form-control" %>
           <%= submit_tag "+", class: "btn btn-success" %>
         <% end %>
+        <%= link_to 'go here to add new contacts', user_contacts_path(current_user) %>
       </div>
     <% else %>
       <div id="job-application-<%= job_application.id.to_s %>-contact-form" hidden>
