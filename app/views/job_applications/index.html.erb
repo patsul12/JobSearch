@@ -1,4 +1,8 @@
 <% if current_user %>
+  <% if (current_user.sign_in_count == 0) %>
+    <% javascript_include_tag "bootstrap-tour.min.js" %>
+    <% stylesheet_link_tag  "bootstrap-tour.min.css" %>
+  <% end %>
   <div class="list-group">
     <%= render @job_applications %>
   </div>
