@@ -13,7 +13,6 @@ $(document).ready(function() {
   });
 
   var tour = new Tour({
-    storage: false,
     steps: [
       {
         element: ".navbar-header",
@@ -94,6 +93,6 @@ $(document).ready(function() {
     ]
   });
 
-  tour.init(true);
-  tour.start(true);
+  tour.init();
+  tour.start();
 });
