@@ -20,6 +20,7 @@ gem 'font-awesome-rails'
 gem 'omnicontacts'
 gem 'groupdate'
 gem 'chartkick'
+gem 'aws-sdk', '~> 2'
 
 group :production do
   gem 'rails_12factor'
