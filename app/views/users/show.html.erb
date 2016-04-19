@@ -1,5 +1,5 @@
 <div class="row user">
-  <img class="col-md-4 user-avatar-image" src="https://placehold.it/300x300">
+  <img class="col-md-4 user-avatar-image" src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest @user.email %>">
   <div class="col-md-8">
     <div class="col-md-8">
       <h2><%= @user.username %></h2>
@@ -15,7 +15,13 @@
   </div>
 </div>
 <div class="row user-graphs">
-  <div class="col-md-12">
+  <div class="col-md-10 col-center">
+    <h2>Job Applications by Day</h2>
     <%= column_chart @user.job_applications.group_by_day(:date_submitted).count %>
+  </div>
+  <hr />
+  <div class="col-md-10 col-center">
+    <h2>Job Applications Status Ratio</h2>
+    <%= pie_chart @user.job_applications.group(:status).count %>
   </div>
 </div>
