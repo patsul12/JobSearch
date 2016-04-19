@@ -6,6 +6,7 @@
   <%= link_to (fa_icon "google"), '/contacts/gmail' %>
 </div>
 <h2>Your Contacts:</h2>
+<input id="contacts-filter" type="text" placeholder="Search contacts..." />
 <div id="contacts-wrapper">
   <% if @contacts.length == 0 %>
     <h4>Looks like you don't have any contacts yet, click below to create one.</h4>
