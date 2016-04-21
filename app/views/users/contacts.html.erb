@@ -6,14 +6,21 @@
   <%= link_to (fa_icon "google"), '/contacts/gmail' %>
 </div>
 <h2>Your Contacts:</h2>
-<input id="contacts-filter" type="text" placeholder="Search contacts..." />
 <div id="contacts-wrapper">
+  <div class="form-group col-md-12">
+    <div class="col-md-4">
+      <div class="input-group">
+        <input id="contacts-filter" class="form-control" type="text" placeholder="Search contacts..." />
+        <span class="input-group-addon"><%= fa_icon 'search' %></span>
+      </div>
+    </div>
+  </div>
   <% if @contacts.length == 0 %>
     <h4>Looks like you don't have any contacts yet, click below to create one.</h4>
     <%= link_to "Create a contact", new_contact_path, remote: true %>
   <% else %>
     <%= link_to "Create a contact", new_contact_path, remote: true %>
-    <div class="table-responsive">
+    <div id="contacts-table" class="table-responsive">
       <table class="table table-striped">
         <th>Last Name</th>
         <th>First Name</th>
