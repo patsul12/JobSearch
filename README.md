@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.org/patsul12/JobSearch.svg?branch=master)](https://travis-ci.org/patsul12/JobSearch)[![Code Climate](https://codeclimate.com/github/patsul12/JobSearch/badges/gpa.svg)](https://codeclimate.com/github/patsul12/JobSearch)
 # Job Search
 
-Repo for: [Job Search Tracker](http://mighty-brushlands-85186.herokuapp.comave_and_open_pag)
-
 An app designed to make it easier to keep your job search organized. Track applications, resumes, and cover letters easily.
 Add interview post-mortems and generate reports relevant to improving your job search
 
